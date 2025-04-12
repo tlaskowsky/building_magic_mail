@@ -1,4 +1,9 @@
- # Chapter 2
+---
+title: Chapter 2
+layout: default
+--- 
+ 
+# Chapter 2
 
 ##  Setting Up Your Development Environment
 

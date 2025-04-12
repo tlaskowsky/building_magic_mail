@@ -1,3 +1,8 @@
+---
+title: Chapter 4
+layout: default
+---
+
 # Chapter 4
 
 ## Infrastructure as Code Concepts

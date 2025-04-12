@@ -1,3 +1,8 @@
+---
+title: Chapter 6
+layout: default
+---
+
 # Chapter 6
 
 ## CDK Fundamentals

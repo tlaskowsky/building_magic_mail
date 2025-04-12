@@ -1,3 +1,8 @@
+---
+title: Chapter 5
+layout: default
+---
+
 # Chapter 5
 
 ## TypeScript Fundamentals

@@ -1,3 +1,8 @@
+---
+title: Chapter 3
+layout: default
+---
+
 # Chapter 3
 
  ## Cloud Fundamentals

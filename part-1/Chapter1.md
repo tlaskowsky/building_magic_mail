@@ -1,3 +1,8 @@
+---
+title: Chapter 1
+layout: default
+---
+
    # Chapter 1
 
    ## The Grand Vision
