@@ -1,3 +1,7 @@
+---
+title: Building MagicMail
+---
+
 # Building MagicMail
 
 ## From Code to Cloud: AWS CDK, TypeScript, and GitLab
