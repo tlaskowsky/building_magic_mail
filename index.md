@@ -3,7 +3,7 @@
 ## From Code to Cloud: AWS CDK, TypeScript, and GitLab
 
 ### Terumi Laskowsky  
-Version 0.1 — In Progress  
+Version 0.2 — In Progress  
 © 2025 Terumi Laskowsky. All rights reserved.
 
 ---
