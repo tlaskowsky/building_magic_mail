@@ -1,0 +1,825 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --mermaid-theme: default; --mermaid-sequence-numbers: off; --mermaid-flowchart-curve: linear; --mermaid--gantt-left-padding: 75; --sequence-theme: simple; }
+.privacy { display: none; }
+
+
+:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; position: relative; }
+#write svg h1, #write svg h2, #write svg h3, #write svg h4, #write svg h5, #write svg h6, #write svg p { position: static; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: medium !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(https://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext);
+
+:root {
+	--control-text-color: #777;
+}
+
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+h1,
+.h1,
+.f1 {
+	font-size: 2rem;
+	line-height: 2.5rem;
+}
+h2,
+.h2,
+.f2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+h3,
+.h3,
+.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+#write {
+	max-width: 914px;
+	color: #333;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media only screen and (min-width: 1700px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+}
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+table {
+	width: 100%;
+	font-size: 1.125rem;
+}
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
+	vertical-align: top;
+	border-top: 1px solid #333;
+}
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #333;
+}
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+table > tbody + tbody {
+	border-top: 2px solid #333;
+}
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+abbr {
+	border-bottom: 1px black dotted;
+	cursor: help;
+}
+pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+blockquote {
+	padding: 1.33em;
+	font-style: italic;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+}
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+#write {
+	padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+.md-image>.md-meta {
+	color: #463F5C
+}
+.footnotes {
+	font-size:1.1rem;
+}
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
+}
+
+.task-list{
+	padding-left: 0;
+}
+
+.md-task-list-item {
+	padding-left:34px;
+}
+
+.md-task-list-item > input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -0.2rem;
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 7px);
+	border: none;
+}
+
+.md-task-list-item > input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.md-task-list-item > input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
+}
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
+	opacity: 1;
+}
+
+.md-task-list-item > input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
+.md-tag {
+	color:inherit;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
+}
+
+.outline-expander:before {
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  font-size: 1.5rem;
+ 	top: -0.1rem;
+}
+
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.os-windows #typora-source {
+	font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -3.4em;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+li {
+	margin: 0.5rem 0;
+}
+
+li > *:last-child {
+	margin-bottom: 0;
+}
+
+p img + em {
+  display: block;
+  text-align: center;
+  font-size: 0.85em;
+  color: gray;
+  margin-top: 4px;
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>Chapter3</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='chapter-3'><span>Chapter 3</span></h1><h2 id='managing-cdk-code-with-gitlab'><span>Managing CDK Code with GitLab</span></h2><p><em><span>Ethan navigated his browser to the public IP address of the GitLab server they had deployed in the last chapter. He logged in as </span><code>root</code><span> and clicked on the </span><code>magicmail-infra</code><span> project they had created. There it was – all the CDK code from Chapter 1 and Chapter 2, complete with the commit history he&#39;d created locally. It felt good knowing the code was safely stored somewhere other than just his laptop.</span></em></p><p><em><span>When Maya joined their next call, Ethan shared his screen, showing the GitLab project page. &quot;Okay, Maya, this is great! The code is backed up on our own GitLab server. So, now what? Is this just a backup, or can we do more with it?&quot;</span></em></p><p><em><span>Maya smiled. &quot;Much, much more, Ethan! Storing the code is just the first step. GitLab is designed for collaboration and streamlining the entire development process. Now that our code lives here, we can start using GitLab&#39;s features to manage our work, track tasks, review changes safely, and eventually automate everything. Let&#39;s dive into how we actually use GitLab for our day-to-day CDK development.&quot;</span></em></p><hr /><p><span>&quot;Think of GitLab not just as a storage locker for your code, but as the central workbench for the MagicMail project,&quot; Maya began. &quot;It helps us answer questions like: What features or fixes do we need to work on? Who is working on what? Can someone review my infrastructure changes before they get deployed? How can we ensure changes are consistent and safe?&quot;</span></p><p><span>&quot;In this chapter, we&#39;ll explore some fundamental GitLab workflows that address these questions.&quot;</span></p><h2 id='exploring-the-gitlab-project-ui'><span>Exploring the GitLab Project UI</span></h2><p><span>&quot;Before we start changing code, let&#39;s quickly familiarize ourselves with the GitLab project interface,&quot; Maya suggested, guiding Ethan through the key areas on his screen.</span></p><ol start='' ><li><p><strong><span>Project Overview:</span></strong><span> The main page usually shows the </span><code>README.md</code><span> (if one exists), recent activity, and key project statistics.</span></p></li><li><p><strong><span>Repository:</span></strong><span> This is where you spend a lot of time.</span></p><ul><li><p><strong><span>Files:</span></strong><span> Browse the files in your repository, just like in your local file explorer. You can view file content directly in GitLab.</span></p></li><li><p><strong><span>Commits:</span></strong><span> See the complete history of commits pushed to the repository, showing the author, date, commit message, and the changes introduced in each commit.</span></p></li><li><p><strong><span>Branches:</span></strong><span> View all the branches in the repository (currently, you should see </span><code>main</code><span> and maybe the feature branches if you pushed them). You can see which branch is the default and compare branches.</span></p></li><li><p><strong><span>Tags:</span></strong><span> View the tags you&#39;ve created (like </span><code>chapter-1-end</code><span>). Tags provide stable pointers to specific commits, often used for releases.</span></p></li><li><p><strong><span>Graph:</span></strong><span> Visualize the commit history as a graph, clearly showing branches and merges (this becomes more interesting as history grows).</span></p></li></ul></li><li><p><strong><span>Issues:</span></strong><span> A powerful tool for tracking tasks, feature requests, bug reports, and discussions related to the project. We&#39;ll use this extensively.</span></p></li><li><p><strong><span>Merge Requests (MRs):</span></strong><span> The core mechanism for proposing changes, discussing them, performing code reviews, and merging code between branches (e.g., merging a feature branch into </span><code>main</code><span>). This is central to collaborative workflows.</span></p></li><li><p><strong><span>CI/CD:</span></strong><span> (We&#39;ll cover this in later chapters) This section is where you configure and monitor automated pipelines for building, testing, and deploying your code.</span></p></li><li><p><strong><span>Settings:</span></strong><span> Configure various project settings like members, permissions, integrations, repository settings, etc.</span></p></li></ol><p><img src="images/book2-chap3-gitlab-project-overview.png" referrerpolicy="no-referrer" alt="book-2-chap-3-project-page">
+<em><span>Caption: Key areas of the GitLab project user interface.</span></em></p><p><span>&quot;Take a few moments to click around these sections for the </span><code>magicmail-infra</code><span> project to get a feel for it,&quot; Maya advised.</span></p><h2 id='tracking-work-with-gitlab-issues'><span>Tracking Work with GitLab Issues</span></h2><p><span>&quot;Imagine we need to add that DynamoDB table for storing information about the magical creatures in MagicMail,&quot; Maya proposed. &quot;Instead of just jumping into coding, the professional approach is to first document this requirement as a task. In GitLab, we use </span><strong><span>Issues</span></strong><span> for this.&quot;</span></p><p><span>&quot;Creating an issue serves several purposes:</span></p><ul><li><p><strong><span>Tracking:</span></strong><span> It ensures the task isn&#39;t forgotten.</span></p></li><li><p><strong><span>Clarity:</span></strong><span> It defines what needs to be done (the &#39;Definition of Done&#39;).</span></p></li><li><p><strong><span>Discussion:</span></strong><span> Team members can comment, ask questions, and refine the requirement within the issue.</span></p></li><li><p><strong><span>Assignment:</span></strong><span> Issues can be assigned to specific team members.</span></p></li><li><p><strong><span>Linking:</span></strong><span> Issues can be linked to specific code changes (commits and merge requests), providing traceability.&quot;</span></p></li></ul><div class="md-diagram-panel md-fences-adv-panel" lang="mermaid"><svg id="mermaidChart0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart mermaid-svg" style="max-width: 284px;" viewBox="-8 -8 284 1172" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mermaidChart0{font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart0 .error-icon{fill:#552222;}#mermaidChart0 .error-text{fill:#552222;stroke:#552222;}#mermaidChart0 .edge-thickness-normal{stroke-width:1px;}#mermaidChart0 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart0 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart0 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaidChart0 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart0 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart0 .marker{fill:#333333;stroke:#333333;}#mermaidChart0 .marker.cross{stroke:#333333;}#mermaidChart0 svg{font-family:sans-serif;font-size:16px;}#mermaidChart0 p{margin:0;}#mermaidChart0 .label{font-family:sans-serif;color:#333;}#mermaidChart0 .cluster-label text{fill:#333;}#mermaidChart0 .cluster-label span{color:#333;}#mermaidChart0 .cluster-label span p{background-color:transparent;}#mermaidChart0 .label text,#mermaidChart0 span{fill:#333;color:#333;}#mermaidChart0 .node rect,#mermaidChart0 .node circle,#mermaidChart0 .node ellipse,#mermaidChart0 .node polygon,#mermaidChart0 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart0 .rough-node .label text,#mermaidChart0 .node .label text,#mermaidChart0 .image-shape .label,#mermaidChart0 .icon-shape .label{text-anchor:middle;}#mermaidChart0 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaidChart0 .rough-node .label,#mermaidChart0 .node .label,#mermaidChart0 .image-shape .label,#mermaidChart0 .icon-shape .label{text-align:center;}#mermaidChart0 .node.clickable{cursor:pointer;}#mermaidChart0 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaidChart0 .arrowheadPath{fill:#333333;}#mermaidChart0 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaidChart0 .flowchart-link{stroke:#333333;fill:none;}#mermaidChart0 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart0 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaidChart0 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart0 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaidChart0 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaidChart0 .cluster text{fill:#333;}#mermaidChart0 .cluster span{color:#333;}#mermaidChart0 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart0 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaidChart0 rect.text{fill:none;stroke-width:0;}#mermaidChart0 .icon-shape,#mermaidChart0 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart0 .icon-shape p,#mermaidChart0 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaidChart0 .icon-shape rect,#mermaidChart0 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart0 :root{--mermaid-alt-font-family:sans-serif;}</style><g><marker id="mermaidChart0_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart0_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart0_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart0_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart0_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart0_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M138,69L138,78.333C138,87.667,138,106.333,138,124.333C138,142.333,138,159.667,138,168.333L138,177" id="L_A_B_0" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M138,242L138,253.917C138,265.833,138,289.667,138,312.833C138,336,138,358.5,138,369.75L138,381" id="L_B_C_1" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M138,446L138,452.75C138,459.5,138,473,138,485.833C138,498.667,138,510.833,138,516.917L138,523" id="L_C_D_2" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M138,588L138,599.917C138,611.833,138,635.667,138,658.833C138,682,138,704.5,138,715.75L138,727" id="L_D_E_3" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M138,792L138,796.167C138,800.333,138,808.667,138,816.333C138,824,138,831,138,834.5L138,838" id="L_E_F_4" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M138,903L138,907.167C138,911.333,138,919.667,138,927.333C138,935,138,942,138,945.5L138,949" id="L_F_G_5" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M138,1014L138,1018.167C138,1022.333,138,1030.667,138,1038.333C138,1046,138,1053,138,1056.5L138,1060" id="L_G_H_6" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(138, 125)"><g class="label" transform="translate(-100, -31)"><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="edgeLabel "><p>Define task and acceptance criteria</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(138, 313.5)"><g class="label" transform="translate(-100, -46.5)"><foreignObject width="200" height="93"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="edgeLabel "><p>Name includes issue number, e.g., 1-dynamodb-table</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(138, 486.5)"><g class="label" transform="translate(-60.7890625, -15.5)"><foreignObject width="121.578125" height="31"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "><p>e.g., CDK code</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(138, 659.5)"><g class="label" transform="translate(-100, -46.5)"><foreignObject width="200" height="93"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="edgeLabel "><p>Include 'Closes #IssueNumber' in commit message</p></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default  " id="flowchart-A-0" transform="translate(138, 38.5)"><rect class="basic label-container" style="" x="-108.140625" y="-30.5" width="216.28125" height="61"></rect><g class="label" style="" transform="translate(-78.140625, -15.5)"><rect></rect><foreignObject width="156.28125" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Create GitLab Issue</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-B-1" transform="translate(138, 211.5)"><rect class="basic label-container" style="" x="-118.6953125" y="-30.5" width="237.390625" height="61"></rect><g class="label" style="" transform="translate(-88.6953125, -15.5)"><rect></rect><foreignObject width="177.390625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Create Feature Branch</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-C-3" transform="translate(138, 415.5)"><rect class="basic label-container" style="" x="-109.2578125" y="-30.5" width="218.515625" height="61"></rect><g class="label" style="" transform="translate(-79.2578125, -15.5)"><rect></rect><foreignObject width="158.515625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Implement Changes</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-D-5" transform="translate(138, 557.5)"><rect class="basic label-container" style="" x="-98.0703125" y="-30.5" width="196.140625" height="61"></rect><g class="label" style="" transform="translate(-68.0703125, -15.5)"><rect></rect><foreignObject width="136.140625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Commit Changes</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-E-7" transform="translate(138, 761.5)"><rect class="basic label-container" style="" x="-118.515625" y="-30.5" width="237.03125" height="61"></rect><g class="label" style="" transform="translate(-88.515625, -15.5)"><rect></rect><foreignObject width="177.03125" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Push Branch to GitLab</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-F-9" transform="translate(138, 872.5)"><rect class="basic label-container" style="" x="-118.8359375" y="-30.5" width="237.671875" height="61"></rect><g class="label" style="" transform="translate(-88.8359375, -15.5)"><rect></rect><foreignObject width="177.671875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Create Merge Request</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-G-11" transform="translate(138, 983.5)"><rect class="basic label-container" style="" x="-118.984375" y="-30.5" width="237.96875" height="61"></rect><g class="label" style="" transform="translate(-88.984375, -15.5)"><rect></rect><foreignObject width="177.96875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Review and Merge MR</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-H-13" transform="translate(138, 1110)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Issue Automatically Closed After Merge</p></span></div></foreignObject></g></g></g></g></g></svg></div><p><em><span>Caption: GitLab Issue Workflow</span></em></p><h3 id='creating-your-first-issue'><span>Creating Your First Issue</span></h3><p><span>&quot;Let&#39;s create an issue for adding the DynamoDB table:&quot;</span></p><ol start='' ><li><p><strong><span>Navigate:</span></strong><span> In your </span><code>magicmail-infra</code><span> project in GitLab, click on </span><strong><span>Issues</span></strong><span> in the left-hand sidebar.</span></p></li><li><p><strong><span>New Issue:</span></strong><span> Click the </span><strong><span>New issue</span></strong><span> button (usually near the top right).</span></p></li><li><p><strong><span>Fill Details:</span></strong></p><ul><li><p><strong><span>Title:</span></strong><span> Enter something clear and concise, like </span><code>feat: Add DynamoDB table for Creatures</code><span>. (Using prefixes like </span><code>feat:</code><span>, </span><code>fix:</code><span>, </span><code>docs:</code><span> in titles and commit messages is a good habit borrowed from Conventional Commits).</span></p></li><li><p><strong><span>Type:</span></strong><span> Leave as </span><code>Issue</code><span>.</span></p></li><li><p><strong><span>Description:</span></strong><span> Provide more detail. Use Markdown for formatting. For example:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="markdown"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="markdown"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-strong">**Goal:**</span> Define a DynamoDB table using AWS CDK to store creature data.</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-strong">**Acceptance Criteria:**</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">* A new DynamoDB table resource is defined in the <span class="cm-comment">`magicmail-infra-stack.ts`</span>.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">* The table should have a primary key (e.g., <span class="cm-comment">`creatureId`</span> as a string).</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">* Billing mode should be Pay-Per-Request (On-Demand) initially.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">* Enable point-in-time recovery for the table.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">* The table name should be dynamically generated by CloudFormation/CDK.</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 252px;"></div><div class="CodeMirror-gutters" style="display: none; height: 252px;"></div></div></div></pre></li><li><p><strong><span>Assignees:</span></strong><span> You can assign it to yourself (select </span><code>root</code><span> or your user if you create one later).</span></p></li><li><p><strong><span>Labels (Optional):</span></strong><span> Labels help categorize issues (e.g., </span><code>feature</code><span>, </span><code>bug</code><span>, </span><code>infrastructure</code><span>, </span><code>priority::high</code><span>). You can create labels via the sidebar menu if needed. Let&#39;s add a </span><code>feature</code><span> label.</span></p></li><li><p><strong><span>Milestone (Optional):</span></strong><span> Useful for grouping issues into larger releases or sprints. We don&#39;t need this yet.</span></p></li></ul></li><li><p><strong><span>Submit Issue:</span></strong><span> Click </span><strong><span>Create issue</span></strong><span>.</span></p></li></ol><p><img src="images/book2-chap3-gitlab-proj-issue.png" referrerpolicy="no-referrer" alt="book-2-chap-3-project-issues">
+<em><span>Caption: Creating a GitLab issue to track the DynamoDB feature.</span></em></p><p><span>&quot;Now you have a formal record of the task,&quot; Maya said. &quot;Anyone looking at the project can see what needs to be done. You can comment on it, add checklists, and track its progress.&quot;</span></p><h3 id='working-on-the-issue-feature-branches'><span>Working on the Issue: Feature Branches</span></h3><p><span>&quot;Okay, Ethan, now that we have issue #1 created, let&#39;s follow a standard workflow to implement it,&quot; Maya continued. &quot;The best practice is to create a dedicated </span><strong><span>feature branch</span></strong><span> in Git for the work related to this specific issue. This keeps our </span><code>main</code><span> branch clean and deployable while we work on the new feature.&quot;</span></p><p><strong><span>Creating the Branch Locally</span></strong></p><p><span>&quot;Go back to your terminal, ensuring you&#39;re in your local </span><code>magicmail-infra</code><span> project directory and currently on the </span><code>main</code><span> branch.&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Verify current branch (should output 'main')</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> branch <span class="cm-attribute">--show-current</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 42px;"></div><div class="CodeMirror-gutters" style="display: none; height: 42px;"></div></div></div></pre><p><span>&quot;Now, let&#39;s create a new branch. A common convention is to include the issue number in the branch name for traceability. Since our issue is #1, we could name the branch </span><code>1-dynamodb-table</code><span> or </span><code>1-feature-dynamodb</code><span>.&quot;</span></p><p><strong><span>Create and switch to the new branch</span></strong></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> switch <span class="cm-attribute">-c</span> <span class="cm-number">1</span><span class="cm-attribute">-dynamodb-table</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Output:</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Switched to a new branch <span class="cm-string">'1-dynamodb-table'</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 42px;"></div><div class="CodeMirror-gutters" style="display: none; height: 42px;"></div></div></div></pre><p><img src="images/book2-chap3-feature-branch.png" referrerpolicy="no-referrer" alt="book-2-chap-3-feature-branch-dynamodb">
+<em><span>Caption: Creating a new feature branch locally.</span></em></p><p><span>&quot;Perfect. Any changes and commits we make now will be on this </span><code>1-dynamodb-table</code><span> branch, isolated from </span><code>main</code><span>.&quot;</span></p><h2 id='implementing-the-feature-in-cdk'><span>Implementing the Feature in CDK</span></h2><p><span>&quot;Now for the fun part – writing the CDK code to define the DynamoDB table according to the issue&#39;s acceptance criteria.&quot;</span></p><h3 id='writing-the-dynamodb-table-code'><span>Writing the DynamoDB Table Code</span></h3><p><span>&quot;The necessary DynamoDB constructs are part of the main </span><code>aws-cdk-lib</code><span> package, which should already be installed in your </span><code>node_modules</code><span> folder. So, we just need to open </span><code>lib/magicmail-infra-stack.ts</code><span> in your editor, import the DynamoDB module, and add the table definition.&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="typescript" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="typescript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// lib/magicmail-infra-stack.ts</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-keyword">*</span> <span class="cm-keyword">as</span> <span class="cm-def">cdk</span> <span class="cm-keyword">from</span> <span class="cm-string">'aws-cdk-lib'</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> { <span class="cm-def">Construct</span> } <span class="cm-keyword">from</span> <span class="cm-string">'constructs'</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-keyword">*</span> <span class="cm-keyword">as</span> <span class="cm-def">s3</span> <span class="cm-keyword">from</span> <span class="cm-string">'aws-cdk-lib/aws-s3'</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-keyword">*</span> <span class="cm-keyword">as</span> <span class="cm-def">dynamodb</span> <span class="cm-keyword">from</span> <span class="cm-string">'aws-cdk-lib/aws-dynamodb'</span>; <span class="cm-comment">// &lt;-- Import DynamoDB module</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">export</span> <span class="cm-keyword">class</span> <span class="cm-def">MagicmailInfraStack</span> <span class="cm-keyword">extends</span> <span class="cm-type">cdk</span>.<span class="cm-type">Stack</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-property">constructor</span>(<span class="cm-def">scope</span>: <span class="cm-type">Construct</span>, <span class="cm-def">id</span>: <span class="cm-type">string</span>, <span class="cm-def">props</span><span class="cm-operator">?</span>: <span class="cm-type">cdk</span>.<span class="cm-type">StackProps</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">super</span>(<span class="cm-variable-2">scope</span>, <span class="cm-variable-2">id</span>, <span class="cm-variable-2">props</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// --- Get context values ---</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// ... context logic ... (assuming this exists if needed)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// --- Define S3 Asset Bucket ---</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// This bucket stores assets like design files and mockups for MagicMail.</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">assetsBucket</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">s3</span>.<span class="cm-property">Bucket</span>(<span class="cm-keyword">this</span>, <span class="cm-string">'MagicMailAssetsBucket'</span>, {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// ... existing S3 props ...</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// Make sure these policies are appropriate for your learning environment</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-property">removalPolicy</span>: <span class="cm-variable">cdk</span>.<span class="cm-property">RemovalPolicy</span>.<span class="cm-property">DESTROY</span>, <span class="cm-comment">// Example: Adjust as needed</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-property">autoDeleteObjects</span>: <span class="cm-atom">true</span>, <span class="cm-comment">// Example: Adjust as needed</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// --- Define DynamoDB Table for Creatures --- START ADDITION ---</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">creatureTable</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">dynamodb</span>.<span class="cm-property">Table</span>(<span class="cm-keyword">this</span>, <span class="cm-string">'CreatureDataTable'</span>, {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// Define the primary key (partition key)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-property">partitionKey</span>: {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-property">name</span>: <span class="cm-string">'creatureId'</span>, <span class="cm-comment">// Name of the attribute</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-property">type</span>: <span class="cm-variable">dynamodb</span>.<span class="cm-property">AttributeType</span>.<span class="cm-property">STRING</span>, <span class="cm-comment">// Type of the attribute</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  },</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// Use Pay-Per-Request (On-Demand) billing</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-property">billingMode</span>: <span class="cm-variable">dynamodb</span>.<span class="cm-property">BillingMode</span>.<span class="cm-property">PAY_PER_REQUEST</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// Enable Point-in-Time Recovery (recommended for backups)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-property">pointInTimeRecoverySpecification</span>: {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-property">pointInTimeRecoveryEnabled</span>: <span class="cm-atom">true</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  },</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// Set the removal policy - RETAIN is safer for data, DESTROY is easier for cleanup during dev/book</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// For the book, let's use DESTROY, but emphasize RETAIN for real data.</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-property">removalPolicy</span>: <span class="cm-variable">cdk</span>.<span class="cm-property">RemovalPolicy</span>.<span class="cm-property">DESTROY</span>, <span class="cm-comment">// Use RETAIN for production data!</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// Table name will be dynamically generated by CloudFormation</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// --- Define DynamoDB Table for Creatures --- END ADDITION ---</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// --- Add Tags ---</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// Apply tags to the stack and resources within it</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">cdk</span>.<span class="cm-property">Tags</span>.<span class="cm-property">of</span>(<span class="cm-keyword">this</span>).<span class="cm-property">add</span>(<span class="cm-string">'Project'</span>, <span class="cm-string">'MagicMail'</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">cdk</span>.<span class="cm-property">Tags</span>.<span class="cm-property">of</span>(<span class="cm-keyword">this</span>).<span class="cm-property">add</span>(<span class="cm-string">'Environment'</span>, <span class="cm-string">'Development'</span>); <span class="cm-comment">// Example environment tag</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// --- Define Outputs ---</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// Output the S3 bucket name</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">new</span> <span class="cm-variable">cdk</span>.<span class="cm-property">CfnOutput</span>(<span class="cm-keyword">this</span>, <span class="cm-string">'AssetsBucketName'</span>, {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-property">value</span>: <span class="cm-variable-2">assetsBucket</span>.<span class="cm-property">bucketName</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-property">description</span>: <span class="cm-string">'Name of the S3 bucket for MagicMail assets'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// --- Add Output for DynamoDB Table Name --- START ADDITION ---</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">new</span> <span class="cm-variable">cdk</span>.<span class="cm-property">CfnOutput</span>(<span class="cm-keyword">this</span>, <span class="cm-string">'CreatureTableName'</span>, {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-property">value</span>: <span class="cm-variable-2">creatureTable</span>.<span class="cm-property">tableName</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-property">description</span>: <span class="cm-string">'Name of the DynamoDB table for creature data'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// --- Add Output for DynamoDB Table Name --- END ADDITION ---</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 1470px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1470px;"></div></div></div></pre><p><span>&quot;Make sure you save the file,&quot; Maya reminded. &quot;We&#39;ve imported the </span><code>dynamodb</code><span> module, created a </span><code>dynamodb.Table</code><span> construct, specified the </span><code>partitionKey</code><span> (</span><code>creatureId</code><span> as a string), set the </span><code>billingMode</code><span> to </span><code>PAY_PER_REQUEST</code><span>, enabled </span><code>pointInTimeRecovery</code><span>, and set the </span><code>removalPolicy</code><span> to </span><code>DESTROY</code><span> for easy cleanup during our exercises (but stressed that </span><code>RETAIN</code><span> is crucial for real data). We also added a </span><code>CfnOutput</code><span> for the table name.&quot;</span></p><h3 id='committing-the-changes'><span>Committing the Changes</span></h3><p><span>&quot;Now that we&#39;ve implemented the feature on our branch, let&#39;s commit these changes locally.&quot;</span></p><p><span>&quot;First, check the status:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> status</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre><p><span>(This should show lib/magicmail-infra-stack.ts as modified).</span></p><p><span>&quot;Stage the changes:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> add .</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre><p><span>&quot;And now commit. This is where we link the commit back to the GitLab issue. By including </span><code>Closes #1</code><span> (or </span><code>Fixes #1</code><span>, </span><code>Resolves #1</code><span>) in the commit message, GitLab will automatically associate this commit with issue #1 and even close the issue when this commit is merged into the default branch (</span><code>main</code><span>).&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> commit <span class="cm-attribute">-m</span> <span class="cm-string">"feat: Add DynamoDB table for creatures</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Defines the DynamoDB table as per acceptance criteria.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">-</span> Partition key: creatureId (String)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">-</span> Billing Mode: PAY_PER_REQUEST</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">-</span> PITR: Enabled</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">-</span> Removal Policy: DESTROY (for dev)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Closes <span class="cm-comment">#1"</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 189px;"></div><div class="CodeMirror-gutters" style="display: none; height: 189px;"></div></div></div></pre><p><span>(Note: This is a multi-line commit message. Running git commit without -m opens your default editor, which is often easier for writing detailed messages like this).</span></p><h3 id='pushing-the-feature-branch'><span>Pushing the Feature Branch</span></h3><p><span>&quot;Our changes are committed locally on the 1-dynamodb-table branch. Now we need to push this new branch and its commits up to our GitLab server (origin).&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> push <span class="cm-attribute">-u</span> origin <span class="cm-number">1</span><span class="cm-attribute">-dynamodb-table</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre><p><span>&quot;The </span><code>-u</code><span> flag sets the upstream tracking for this new branch, just like it did for </span><code>main</code><span>. You&#39;ll likely be prompted for your </span><code>root</code><span> username and password again.&quot;</span></p><p><span>&quot;Once the push is complete, if you go back to your GitLab project in the browser, you should see the new branch listed under Repository -&gt; Branches. And if you look at Issue #1, you should see this commit linked to it!&quot; Maya added.</span></p><p><img src="images/book2-chap3-gitlab-proj-issue-branch-link.png" referrerpolicy="no-referrer" alt="book-2-chap-3-issue-closed">
+<em><span>Caption: Commit automatically linked to the corresponding GitLab issue.</span></em></p><p><span>&quot;Excellent! The code implementing the feature is now safely on GitLab, associated with the task it addresses, but still separate from our main codebase. The next step is to propose merging these changes into </span><code>main</code><span> using a Merge Request.&quot;</span></p><h2 id='proposing-changes-merge-requests'><span>Proposing Changes: Merge Requests</span></h2><p><span>&quot;Pushing your branch makes the code available on the server, but it doesn&#39;t automatically combine it with the main codebase (</span><code>main</code><span> branch),&quot; Maya explained. &quot;To formally propose integrating your feature branch into </span><code>main</code><span>, we use a Merge Request, often abbreviated as MR.&quot;</span></p><p><span>(Note: Other platforms like GitHub call this a Pull Request or PR, but the concept is identical).</span></p><h3 id='what-is-a-merge-request'><span>What is a Merge Request?</span></h3><p><span>&quot;A Merge Request is much more than just a request to merge code. It&#39;s the central place for:</span></p><ul><li><p><strong><span>Describing Changes:</span></strong><span> Explaining what the branch does and why the changes were made</span></p></li><li><p><strong><span>Code Review:</span></strong><span> Allowing other team members (or just yourself, for review) to examine the exact code changes (the &#39;diff&#39;), ask questions, suggest improvements, and approve the changes.</span></p></li><li><p><strong><span>Discussion:</span></strong><span> Providing a forum for conversation specifically about the proposed changes.</span></p></li><li><p><strong><span>Automation (CI/CD Integration):</span></strong><span> Triggering automated checks (like tests, linting, security scans, even preview deployments) to run against the proposed code before it gets merged. (We&#39;ll set this up later!)</span></p></li><li><p><strong><span>Approval Gates:</span></strong><span> Enforcing rules like requiring approvals from specific people or successful pipeline runs before merging is allowed.</span></p></li><li><p><strong><span>Traceability:</span></strong><span> Linking the code changes back to the original issue(s) they address.&quot;</span></p></li></ul><p><span>&quot;Using MRs is fundamental to safe and collaborative development, especially with Infrastructure as Code, where mistakes can be costly.&quot;</span></p><div class="md-diagram-panel md-fences-adv-panel" lang="mermaid"><svg id="mermaidChart1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart mermaid-svg" style="max-width: 284px;" viewBox="-8 -8 284 1252" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mermaidChart1{font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart1 .error-icon{fill:#552222;}#mermaidChart1 .error-text{fill:#552222;stroke:#552222;}#mermaidChart1 .edge-thickness-normal{stroke-width:1px;}#mermaidChart1 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart1 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaidChart1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart1 .marker{fill:#333333;stroke:#333333;}#mermaidChart1 .marker.cross{stroke:#333333;}#mermaidChart1 svg{font-family:sans-serif;font-size:16px;}#mermaidChart1 p{margin:0;}#mermaidChart1 .label{font-family:sans-serif;color:#333;}#mermaidChart1 .cluster-label text{fill:#333;}#mermaidChart1 .cluster-label span{color:#333;}#mermaidChart1 .cluster-label span p{background-color:transparent;}#mermaidChart1 .label text,#mermaidChart1 span{fill:#333;color:#333;}#mermaidChart1 .node rect,#mermaidChart1 .node circle,#mermaidChart1 .node ellipse,#mermaidChart1 .node polygon,#mermaidChart1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart1 .rough-node .label text,#mermaidChart1 .node .label text,#mermaidChart1 .image-shape .label,#mermaidChart1 .icon-shape .label{text-anchor:middle;}#mermaidChart1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaidChart1 .rough-node .label,#mermaidChart1 .node .label,#mermaidChart1 .image-shape .label,#mermaidChart1 .icon-shape .label{text-align:center;}#mermaidChart1 .node.clickable{cursor:pointer;}#mermaidChart1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaidChart1 .arrowheadPath{fill:#333333;}#mermaidChart1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaidChart1 .flowchart-link{stroke:#333333;fill:none;}#mermaidChart1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaidChart1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaidChart1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaidChart1 .cluster text{fill:#333;}#mermaidChart1 .cluster span{color:#333;}#mermaidChart1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaidChart1 rect.text{fill:none;stroke-width:0;}#mermaidChart1 .icon-shape,#mermaidChart1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart1 .icon-shape p,#mermaidChart1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaidChart1 .icon-shape rect,#mermaidChart1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart1 :root{--mermaid-alt-font-family:sans-serif;}</style><g><marker id="mermaidChart1_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart1_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart1_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart1_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart1_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart1_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M138,100L138,104.167C138,108.333,138,116.667,138,124.333C138,132,138,139,138,142.5L138,146" id="L_A_B_0" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M138,242L138,246.167C138,250.333,138,258.667,138,266.333C138,274,138,281,138,284.5L138,288" id="L_B_C_1" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M138,415L138,419.167C138,423.333,138,431.667,138,439.333C138,447,138,454,138,457.5L138,461" id="L_C_D_2" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M138,557L138,561.167C138,565.333,138,573.667,138,581.333C138,589,138,596,138,599.5L138,603" id="L_D_E_3" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M138,699L138,703.167C138,707.333,138,715.667,138,723.333C138,731,138,738,138,741.5L138,745" id="L_E_F_4" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M138,841L138,845.167C138,849.333,138,857.667,138,865.333C138,873,138,880,138,883.5L138,887" id="L_F_G_5" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M138,952L138,956.167C138,960.333,138,968.667,138,976.333C138,984,138,991,138,994.5L138,998" id="L_G_H_6" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M138,1094L138,1098.167C138,1102.333,138,1110.667,138,1118.333C138,1126,138,1133,138,1136.5L138,1140" id="L_H_I_7" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default  " id="flowchart-A-14" transform="translate(138, 54)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Create Feature Branch e.g. 1-dynamodb-table</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-B-15" transform="translate(138, 196)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Implement Changes Locally</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-C-17" transform="translate(138, 353.5)"><rect class="basic label-container" style="" x="-130" y="-61.5" width="260" height="123"></rect><g class="label" style="" transform="translate(-100, -46.5)"><rect></rect><foreignObject width="200" height="93"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Commit Changes Reference Issue with 'Closes #IssueNumber'</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-D-19" transform="translate(138, 511)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Push Feature Branch to GitLab</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-E-21" transform="translate(138, 653)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Create Merge Request MR</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-F-23" transform="translate(138, 795)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Code Review and Discussion</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-G-25" transform="translate(138, 921.5)"><rect class="basic label-container" style="" x="-126.125" y="-30.5" width="252.25" height="61"></rect><g class="label" style="" transform="translate(-96.125, -15.5)"><rect></rect><foreignObject width="192.25" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Approve Merge Request</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-H-27" transform="translate(138, 1048)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Merge Feature Branch into main</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-I-29" transform="translate(138, 1190)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Optionally Delete Source Branch</p></span></div></foreignObject></g></g></g></g></g></svg></div><p><em><span>Caption: GitLab Merge Request Workflow</span></em></p><h3 id='creating-the-merge-request-in-gitlab'><span>Creating the Merge Request in GitLab</span></h3><p><span>&quot;Let&#39;s create an MR for our DynamoDB feature branch.&quot;</span></p><ol start='' ><li><p><strong><span>Navigate</span></strong><span> to </span><strong><span>GitLab:</span></strong><span> Go to your </span><code>magicmail-infra</code><span> project page on your GitLab server.</span></p></li><li><p><strong><span>Prompt or Manual Creation:</span></strong></p><ul><li><p><strong><span>Prompt:</span></strong><span> Often, after you push a new branch, GitLab detects it and displays a prominent message near the top of the project page like &quot;You pushed branch 1-</span><code>dynamodb-table</code><span> just now. Create merge request&quot;. Clicking this button is the quickest way.</span></p></li><li><p><strong><span>Manual:</span></strong><span> If you don&#39;t see the prompt, click </span><strong><span>Merge requests</span></strong><span> in the left sidebar, then click the </span><strong><span>New merge request</span></strong><span> button.</span></p></li></ul><p><img src="images/book2-chap3-gitlab-merge-request-note.png" referrerpolicy="no-referrer" alt="book-2-chap-3-merge-request">
+<em><span>Caption: GitLab prompt to create a Merge Request.</span></em></p></li><li><p><strong><span>Select Branches:</span></strong><span> On the &#39;New Merge Request&#39; page:</span></p><ul><li><p><strong><span>Source branch:</span></strong><span> Select </span><code>1-dynamodb-table</code><span> (the branch with your changes).</span></p></li><li><p><strong><span>Target branch:</span></strong><span> Select </span><code>main</code><span> (the branch you want to merge into).</span></p></li></ul></li></ol><ol start='4' ><li><p><strong><span>Fill MR Details:</span></strong><span> GitLab will pre-fill some information based on your branch name and commit messages. Review and refine:</span></p><ul><li><p><strong><span>Title:</span></strong><span> It might pre-fill with something like &quot;Resolve feat: Add DynamoDB table for Creatures&quot;. Adjust if needed for clarity.</span></p></li><li><p><strong><span>Description:</span></strong><span> This is important! GitLab might pull in your commit messages. Add more context:</span></p><ul><li><p><span>Briefly explain the purpose of the MR.</span></p></li><li><p><strong><span>Link the Issue:</span></strong><span> Ensure it correctly links the issue (e.g., it might automatically add </span><code>Closes #1</code><span> if it detected it in the commit, or you can add </span><code>#1</code><span> manually).</span></p></li><li><p><span>Summarize the changes made (added DynamoDB table, updated stack).</span></p></li><li><p><span>Mention any specific areas for reviewers to focus on.</span></p></li><li><p><em><span>Example Description:</span></em></p></li></ul><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">This MR adds the DynamoDB table <span class="cm-keyword">for</span> storing creature data, as defined <span class="cm-keyword">in</span> issue <span class="cm-comment">#1.</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Key changes:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">-</span> Added <span class="cm-quote">`aws-dynamodb`</span> dependency import.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">-</span> Defined <span class="cm-quote">`dynamodb.Table`</span> construct <span class="cm-keyword">in</span> <span class="cm-quote">`magicmail-infra-stack.ts`</span>.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">-</span> Configured partition key, billing mode, PITR, and removal policy.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">-</span> Added CfnOutput <span class="cm-keyword">for</span> the table name.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Closes <span class="cm-comment">#1</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 210px;"></div><div class="CodeMirror-gutters" style="display: none; height: 210px;"></div></div></div></pre><ul><li><p><strong><span>Assignee:</span></strong><span> Assign it to the person responsible for eventually merging it (can be yourself).</span></p></li><li><p><strong><span>Reviewer(s):</span></strong><span> Select who should review the code (again, can be yourself for this exercise, or assign Maya conceptually).</span></p></li><li><p><strong><span>Labels/Milestone:</span></strong><span> Add relevant labels like </span><code>feature</code><span>.</span></p></li></ul></li></ul></li><li><p><strong><span>Submit MR:</span></strong><span> Click </span><strong><span>Create merge request</span></strong><span>.</span></p></li></ol><p><img src="images/book2-chap3-mr-request.png" referrerpolicy="no-referrer" alt="book-2-chap-3-create-merge-request">
+<em><span>Caption: GitLab Merge Request form.</span></em></p><h3 id='exploring-the-merge-request'><span>Exploring the Merge Request</span></h3><p><span>&quot;Now you&#39;ll see the Merge Request page,&quot; Maya pointed out. &quot;This is the central hub for this proposed change.&quot;</span></p><ul><li><p><strong><span>Overview/Discussion:</span></strong><span> The main tab for conversation, description, and seeing related events (commits pushed, pipeline status later).</span></p></li><li><p><strong><span>Commits:</span></strong><span> Shows the specific commits included in this MR&#39;s source branch compared to the target branch.</span></p></li><li><p><strong><span>Changes:</span></strong><span> This tab shows the diff – the exact lines of code added, removed, or modified. This is where code review happens. You can click on lines to add comments.</span></p></li></ul><p><img src="images/book2-chap3-mr-request-form.png" referrerpolicy="no-referrer" alt="book-2-chap-3-merge-requested">
+<em><span>Caption: Overview of a GitLab Merge Request page.</span></em></p><h2 id='reviewing-and-merging-the-code'><span>Reviewing and Merging the Code</span></h2><p><span>&quot;We&#39;ve successfully proposed our change! The next step in a real workflow would be the code review process, which we&#39;ll simulate.&quot;</span></p><h3 id='code-review-simulation'><span>Code Review Simulation</span></h3><p><span>&quot;Code review is a critical step,&quot; Maya emphasized. &quot;Having another pair of eyes look over infrastructure code changes before they&#39;re merged and potentially deployed can catch errors, suggest improvements, enforce standards, and share knowledge across the team.&quot;</span></p><p><span>&quot;Even though it&#39;s just us right now, let&#39;s simulate a quick review. Imagine I&#39;m reviewing your MR, Ethan.&quot;</span></p><p><strong><span>Reviewing Changes in GitLab</span></strong></p><ol start='' ><li><p><strong><span>Overview Tab:</span></strong><span> Navigate to the Merge Request you just created in GitLab (Click </span><strong><span>Merge requests</span></strong><span> in the sidebar, then click on the MR title).</span></p></li><li><p><strong><span>Go to Changes Tab:</span></strong><span> Click on the Changes tab within the MR.</span></p></li><li><p><strong><span>Examine the Diff:</span></strong><span> Scroll through the changes. GitLab shows the differences between the source branch (</span><code>1-dynamodb-table</code><span>) and the target branch (</span><code>main</code><span>). Lines added are typically highlighted in green, removed lines in red. You can see exactly which files were modified and how.</span></p></li></ol><p><img src="images/book2-chap3-mr-request-change.png" referrerpolicy="no-referrer" alt="book-2-chap-3-merge-request-diff-tab">
+<em><span>Caption: Reviewing code changes (diff) in the GitLab Merge Request.</span></em></p><p><strong><span>Adding Comments</span></strong>
+<span>&quot;GitLab makes it easy to comment on the changes,&quot; Maya demonstrated.</span></p><ol start='' ><li><p><strong><span>General Comment:</span></strong><span> On the Overview tab, you can add general comments about the MR as a whole. Let&#39;s add one:</span></p><ul><li><p><span>Go to the </span><strong><span>Overview</span></strong><span> tab.</span></p></li><li><p><span>Scroll down to the comment box.</span></p></li><li><p><strong><span>Type:</span></strong><span> </span><code>Looks good overall, the DynamoDB definition matches the issue requirements.</code></p></li><li><p><span>Click </span><strong><span>Comment</span></strong><span>.</span></p></li></ul></li><li><p><strong><span>Inline Comment:</span></strong><span> For specific feedback, you can comment directly on lines of code in the </span><strong><span>Changes</span></strong><span> tab.</span></p><ul><li><p><span>Go back to the </span><strong><span>Changes</span></strong><span> tab.</span></p></li><li><p><span>Find the line where we set the </span><code>removalPolicy</code><span> for the DynamoDB table (</span><code>removalPolicy: cdk.RemovalPolicy.DESTROY,</code><span>).</span></p></li><li><p><span>Hover your mouse over that line number. A small comment icon should appear. Click it.</span></p></li><li><p><span>A comment box will open inline. Type: </span><code>Just double-checking: We definitely want DESTROY here for the exercises, right? Important to remember RETAIN for production!</code></p></li><li><p><span>Click </span><strong><span>Start a review</span></strong><span> or </span><strong><span>Add comment now</span></strong><span>. (Starting a review batches multiple comments together). Let&#39;s click Add comment now for simplicity here.</span></p></li></ul></li></ol><p><img src="images/book2-chap3-gitlab-merge-inline-comment.png" referrerpolicy="no-referrer" alt="book-2-chap-3-inline-comment">
+<em><span>Caption: Adding an inline code comment during review.</span></em></p><p><span>&quot;See how easy that is?&quot; Maya asked. &quot;The author (you, in this case) would get notified about these comments. You could then reply to the comments, discuss the feedback, and even push new commits to the same feature branch (</span><code>1-dynamodb-table</code><span>) to address any required changes. The MR would automatically update with the new commits.&quot;</span></p><p><img src="images/book2-chap3-gitlab-activity-conversations.png" referrerpolicy="no-referrer" alt="book-2-chap-3-mr-activity">
+<em><span>Caption: Discussion thread within the Merge Request.</span></em></p><h3 id='approving-the-merge-request'><span>Approving the Merge Request</span></h3><p><span>&quot;Once the reviewer is satisfied with the changes (either initially or after discussion and updates), they can formally approve the MR,&quot; Maya explained.</span></p><p><span>&quot;On the MR&#39;s Overview tab, there&#39;s usually an Approve button (its location and availability might depend on project settings, but it&#39;s typically near the merge button). Since we&#39;re both the author and reviewer here, let&#39;s just click it.&quot;</span></p><ul><li><p><span>Click the </span><strong><span>Approve</span></strong><span> button.</span></p></li></ul><p><img src="images/book2-chap3-gitlab-mr-approval.png" referrerpolicy="no-referrer" alt="book-2-chap-3-cmr-approve">
+<em><span>Caption: Approving the Merge Request.</span></em></p><p><span>&quot;Approval signifies that the reviewer finds the code acceptable for merging. In larger teams, you might configure rules requiring one or more approvals before the merge button becomes active.&quot;</span></p><p><span>&quot;Now that the MR has been &#39;reviewed&#39; and approved, it&#39;s ready to be merged!&quot;</span></p><h3 id='merging-the-changes'><span>Merging the Changes</span></h3><p><span>&quot;With the review complete and approval given, we can now merge the feature branch into our main codebase,&quot; Maya declared.</span></p><p><strong><span>Performing the Merge in GitLab</span></strong>
+<span>&quot;Go to the </span><strong><span>Merge</span></strong><span> Request page in GitLab. Since it&#39;s approved (and assuming no merge conflicts or failing pipelines, which we&#39;ll cover later), the Merge button should be active.&quot;</span></p><p><img src="images/book2-chap3-mr-merge.png" referrerpolicy="no-referrer" alt="book-2-chap-3-merge-active">
+<em><span>Caption: The Merge button is ready after approval.</span></em></p><p><span>&quot;Before clicking Merge, notice there might be a dropdown arrow next to it or some checkboxes below it,&quot; Maya pointed out. &quot;These often control how the merge happens and what happens afterwards.&quot;</span></p><ul><li><p><strong><span>Merge Commit Strategy:</span></strong><span> GitLab usually defaults to creating a &#39;merge commit&#39;. This means it creates a special commit on the </span><code>main</code><span> branch that joins the history of the </span><code>main</code><span> branch and the </span><code>1-dynamodb-table branch</code><span>. This preserves the full history of the feature branch. Other options might include &#39;Squash commits&#39; (combining all feature branch commits into one before merging) or &#39;Fast-forward merge&#39; (only possible if </span><code>main</code><span> hasn&#39;t changed since the feature branch was created). For now, the default merge commit strategy is fine.</span></p></li><li><p><strong><span>&#39;Delete source branch&#39; checkbox:</span></strong><span> This option, if checked, will automatically delete the </span><code>1-dynamodb-table branch</code><span> from the GitLab server after the merge is successful. This is usually good practice to keep the repository clean, as the feature branch is no longer needed once merged. Let&#39;s check this box.</span></p></li><li><p><strong><span>&#39;Squash commits&#39; checkbox:</span></strong><span> Leave this unchecked for now to see the full history.</span></p></li></ul><p><span>&quot;Okay, go ahead and click the </span><strong><span>Merge</span></strong><span> button!&quot;</span></p><p><span>GitLab will perform the merge operation on the server. After a few moments, the MR status should update to &#39;Merged&#39;.</span></p><p><img src="images/book2-chap3-mr-merge-complete.png" referrerpolicy="no-referrer" alt="book-2-chap-3-merge-approved">
+<em><span>Caption: Merge Request successfully merged.</span></em></p><h2 id='post-merge-cleanup-local-repository'><span>Post-Merge Cleanup (Local Repository)</span></h2><p><span>&quot;The code is now merged on the remote GitLab server (</span><code>origin</code><span>),&quot; Maya explained. &quot;But your local repository doesn&#39;t know about this yet. Your local </span><code>main</code><span> branch is still behind the remote </span><code>main</code><span>, and your local </span><code>1-dynamodb-table</code><span> branch still exists.&quot;</span></p><p><span>&quot;Let&#39;s clean up locally:&quot;</span></p><ol start='' ><li><p><strong><span>Switch to main:</span></strong><span> In your terminal, switch back to your main branch:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> switch main</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre></li><li><p><strong><span>Pull Changes:</span></strong><span> Fetch the latest changes from the remote </span><code>origin</code><span> and merge them into your local </span><code>main</code><span>. This will bring down the merge commit (and the DynamoDB code) that was created on the server.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> pull origin main</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre><p><img src="images/book2-chap3-pull-reflect-mr.png" referrerpolicy="no-referrer" alt="book-2-chap-3-pull-change">
+<em><span>Caption: Updating the local main branch with changes from the remote.</span></em></p></li><li><p><strong><span>Delete Local Branch:</span></strong><span> Now that the feature branch is merged and its changes are incorporated into your local </span><code>main</code><span>, you can safely delete the local feature branch:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> branch <span class="cm-attribute">-d</span> <span class="cm-number">1</span><span class="cm-attribute">-dynamodb-table</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> (The <span class="cm-attribute">-d</span> flag ensures the branch is fully merged before deleting; use <span class="cm-attribute">-D</span> to force delete <span class="cm-keyword">if</span> needed, but that<span class="cm-string">'s usually unnecessary here).</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 42px;"></div><div class="CodeMirror-gutters" style="display: none; height: 42px;"></div></div></div></pre><p><img src="images/book2-chap3-git-delete-mr-branch.png" referrerpolicy="no-referrer" alt="book-2-chap-3-delete-feature-branch">
+<em><span>Caption: Deleting the merged feature branch locally.</span></em></p></li></ol><p><span>&quot;Your local repository is now up-to-date with the remote </span><code>main</code><span> branch, and the redundant feature branch is cleaned up both locally and remotely (since we checked the &#39;Delete source branch&#39; box in GitLab).&quot;</span></p><h2 id='verifying-issue-closure'><span>Verifying Issue Closure</span></h2><p><span>&quot;One last thing,&quot; Maya said. &quot;Remember how we put </span><code>Closes #1</code><span> in our commit message? Let&#39;s check if GitLab automatically closed the issue when the MR was merged.&quot;</span></p><ul><li><p><span>Navigate back to Issues in your GitLab project.</span></p></li><li><p><span>Click on the Closed tab in the issue list.</span></p></li><li><p><span>You should see Issue #1 listed there, marked as closed! Clicking on it should show that it was closed by the commit/MR we just merged.</span></p></li></ul><p><img src="images/book2-chap3-gitlab-issue-closed-with-comment.png" referrerpolicy="no-referrer" alt="book-2-chap-3-issue-closed-2">
+<em><span>Caption: Issue automatically closed upon merging the related Merge Request.</span></em></p><p><span>&quot;This demonstrates the power of linking issues, branches, commits, and merge requests together in GitLab – it provides excellent traceability and can automate parts of your workflow.&quot;</span></p><h2 id='tagging-the-end-of-chapter-3'><span>Tagging the End of Chapter 3</span></h2><p><span>&quot;Before we wrap up, let&#39;s tag the current state of our main branch to </span><code>mark</code><span> the completion of Chapter 3,&quot; said Maya. &quot;This helps readers easily check out the code as it should be at this point.&quot;</span></p><ol start='' ><li><p><strong><span>Ensure main is Up-to-Date:</span></strong><span> Make sure you are on the main branch locally and have pulled the latest changes (which you should have after the post-merge cleanup):</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> switch main</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> pull origin main</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 42px;"></div><div class="CodeMirror-gutters" style="display: none; height: 42px;"></div></div></div></pre></li><li><p><strong><span>Create Local Tag:</span></strong><span> Create the tag pointing to the latest commit on </span><code>main</code><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> tag chapter-3-end</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre></li><li><p><strong><span>Push Tag:</span></strong><span> Push this new tag to the remote GitLab server (</span><code>origin</code><span>):</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> push origin chapter-3-end</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre></li></ol><p>&nbsp;</p><h2 id='wrapping-up-chapter-3'><span>Wrapping Up Chapter 3</span></h2><p><span>&quot;Another big step forward today, Ethan,&quot; Maya said. &quot;You&#39;ve learned how real development teams organize work: using issues to track tasks, feature branches to isolate changes, and merge requests to safely review and integrate code.&quot;</span></p><p><span>&quot;You&#39;re no longer just writing code — you&#39;re managing a workflow. And with GitLab’s tools, you now have clear traceability from idea to implementation.&quot;</span></p><p><span>Maya smiled. &quot;Next up, we&#39;ll take this solid collaborative foundation and start building automation around it. You&#39;ll see how pipelines can help check every change automatically — without having to remember manual steps.&quot;</span></p><hr /><h2 id='ethans-homework'><span>Ethan&#39;s Homework</span></h2><p><span>&quot;To practice this entire workflow again:&quot; Maya suggested.</span></p><blockquote><ol start='' ><li><p><strong><span>Create Issue:</span></strong><span> Create a new issue in GitLab (it will be Issue #2) titled </span><code>docs:</code><span> Update README with project </span><code>setup details</code><span>. In the description, mention adding sections about cloning, installing dependencies, and configuring AWS profiles. Assign it to yourself.</span></p></li><li><p><strong><span>Create Branch:</span></strong><span> Locally, create and switch to a new branch named </span><code>2-update-readme</code><span>.</span></p></li><li><p><strong><span>Make Changes:</span></strong><span> Edit the </span><code>README.md</code><span> file in your project. Add some basic setup instructions based on what you learned in Chapter 1 and 2.</span></p></li><li><p><strong><span>Commit:</span></strong><span> Stage (</span><code>git add README.md</code><span>) and commit the changes. Use a commit message like </span><code>docs: Add initial setup instructions to README\n\nCloses #2</code><span>.</span></p></li><li><p><strong><span>Push Branch:</span></strong><span> Push the new branch to GitLab: </span><code>git push -u origin 2-update-readme</code><span>.</span></p></li><li><p><strong><span>Create MR:</span></strong><span> Create a new Merge Request in GitLab for the </span><code>2-update-readme</code><span> branch, targeting </span><code>main</code><span>. Ensure the title and description are clear and it references </span><code>Closes #2</code><span>. Assign it to yourself for review.</span></p></li><li><p><strong><span>Review &amp; Approve:</span></strong><span> Add a comment (e.g., &quot;Looks good&quot;) and Approve the MR.</span></p></li><li><p><strong><span>Merge:</span></strong><span> Merge the MR, making sure the &quot;Delete source branch&quot; option is checked.</span></p></li><li><p><strong><span>Local Cleanup:</span></strong><span> Switch back to </span><code>main</code><span> locally, pull the changes (</span><code>git pull origin main</code><span>), and delete the local </span><code>2-update-readme</code><span> branch (</span><code>git branch -d 2-update-readme</code><span>).</span></p></li><li><p><strong><span>Verify:</span></strong><span> Check that Issue #2 is now closed in GitLab.</span></p></li></ol></blockquote><h2 id='key-takeaways'><span>Key Takeaways</span></h2><blockquote><ul><li><p><span>GitLab Issues are used to track tasks, define requirements, and facilitate discussion.</span></p></li><li><p><span>Feature branches (often named including the issue number) isolate development work from the main branch.</span></p></li><li><p><span>Commits should reference the related issue number (e.g., </span><code>Closes #X</code><span>) to enable automatic linking and closing in GitLab.</span></p></li><li><p><span>Feature branches need to be pushed to the remote (</span><code>git push -u origin &lt;branch&gt;</code><span>) before an MR can be created.</span></p></li><li><p><span>Merge Requests (MRs) are the central place for proposing, reviewing, discussing, and approving code changes before merging them into the target branch (e.g., </span><code>main</code><span>).</span></p></li><li><p><span>GitLab&#39;s MR interface allows inline commenting on code changes (</span><code>Changes</code><span> tab) and general discussion (</span><code>Overview</code><span> tab).</span></p></li><li><p><span>Merging an MR integrates the source branch&#39;s changes into the target branch on the remote repository. Checking &quot;Delete source branch&quot; cleans up the remote.</span></p></li><li><p><span>Post-merge cleanup involves updating the local target branch (</span><code>git switch main</code><span>, </span><code>git pull</code><span>) and deleting the local feature branch (</span><code>git branch -d &lt;branch&gt;</code><span>).</span></p></li></ul></blockquote><h2 id='looking-ahead'><span>Looking Ahead</span></h2><p><span>Now that Ethan has mastered the fundamental Git commands and the basic GitLab workflow for managing code changes (Issue -&gt; Branch -&gt; Commit -&gt; Push -&gt; MR -&gt; Review -&gt; Merge), we&#39;re ready to introduce automation. Chapter 4 will delve into the concepts of Continuous Integration (CI) and Continuous Deployment (CD), explaining why they are crucial for Infrastructure as Code. We&#39;ll explore the core components of GitLab CI/CD, such as the </span><code>.gitlab-ci.yml</code><span> file, Runners, pipelines, stages, and jobs, setting the stage for building our first automated pipeline for the MagicMail CDK project.</span></p><h2 id='key-services--concepts-introduced'><span>Key Services &amp; Concepts Introduced</span></h2><h3 id='gitlab-features'><span>GitLab Features:</span></h3><blockquote><ul><li><p><strong><span>Issues:</span></strong><span> Creating, describing, assigning, labeling.</span></p></li><li><p><strong><span>Merge Requests (MRs):</span></strong><span> Creating, describing, assigning reviewers/assignees, reviewing changes (diffs), commenting (general and inline), approving, merging, deleting source branch.</span></p></li><li><p><strong><span>Commit/Issue Linking:</span></strong><span> Using keywords like </span><code>Closes #X</code><span> in commit messages for automatic linking and issue closing.</span></p></li><li><p><strong><span>Branch Visualization:</span></strong><span> Viewing branches and commit graphs in the UI.</span></p></li></ul></blockquote><h3 id='git-concepts'><span>Git Concepts:</span></h3><blockquote><ul><li><p><strong><span>Feature Branching Workflow:</span></strong><span> The overall process of using branches for specific tasks/features integrated with issues and MRs.</span></p></li><li><p><code>**git switch -c &lt;branch&gt;</code><span>:** Creating and switching to a new branch.</span></p></li><li><p><strong><code>git push -u &lt;remote&gt; &lt;branch&gt;</code><span>:</span></strong><span> Pushing a new local branch to a remote and setting upstream tracking.</span></p></li><li><p><strong><code>git branch -d &lt;branch&gt;</code><span>:</span></strong><span> Deleting a local branch (after it has been merged).</span></p></li><li><p><code>**git pull &lt;remote&gt; &lt;branch&gt;</code><span>:** Fetching changes from a remote branch and merging them into the current local branch.</span></p></li></ul></blockquote><h3 id='other-concepts'><span>Other Concepts:</span></h3><blockquote><ul><li><p><strong><span>Conventional Commits (Mentioned):</span></strong><span> Using prefixes like </span><code>feat:</code><span>, </span><code>fix:</code><span>, </span><code>docs:</code><span> in commit messages/MR titles for semantic meaning.</span></p></li><li><p><strong><span>Code Review:</span></strong><span> Purpose and practice</span></p></li></ul></blockquote></div></div>
+</body>
+</html>

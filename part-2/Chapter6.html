@@ -1,0 +1,827 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --mermaid-theme: default; --mermaid-sequence-numbers: off; --mermaid-flowchart-curve: linear; --mermaid--gantt-left-padding: 75; --sequence-theme: simple; }
+.privacy { display: none; }
+
+
+:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; position: relative; }
+#write svg h1, #write svg h2, #write svg h3, #write svg h4, #write svg h5, #write svg h6, #write svg p { position: static; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: medium !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(https://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext);
+
+:root {
+	--control-text-color: #777;
+}
+
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+h1,
+.h1,
+.f1 {
+	font-size: 2rem;
+	line-height: 2.5rem;
+}
+h2,
+.h2,
+.f2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+h3,
+.h3,
+.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+#write {
+	max-width: 914px;
+	color: #333;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media only screen and (min-width: 1700px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+}
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+table {
+	width: 100%;
+	font-size: 1.125rem;
+}
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
+	vertical-align: top;
+	border-top: 1px solid #333;
+}
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #333;
+}
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+table > tbody + tbody {
+	border-top: 2px solid #333;
+}
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+abbr {
+	border-bottom: 1px black dotted;
+	cursor: help;
+}
+pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+blockquote {
+	padding: 1.33em;
+	font-style: italic;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+}
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+#write {
+	padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+.md-image>.md-meta {
+	color: #463F5C
+}
+.footnotes {
+	font-size:1.1rem;
+}
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
+}
+
+.task-list{
+	padding-left: 0;
+}
+
+.md-task-list-item {
+	padding-left:34px;
+}
+
+.md-task-list-item > input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -0.2rem;
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 7px);
+	border: none;
+}
+
+.md-task-list-item > input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.md-task-list-item > input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
+}
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
+	opacity: 1;
+}
+
+.md-task-list-item > input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
+.md-tag {
+	color:inherit;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
+}
+
+.outline-expander:before {
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  font-size: 1.5rem;
+ 	top: -0.1rem;
+}
+
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.os-windows #typora-source {
+	font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -3.4em;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+li {
+	margin: 0.5rem 0;
+}
+
+li > *:last-child {
+	margin-bottom: 0;
+}
+
+p img + em {
+  display: block;
+  text-align: center;
+  font-size: 0.85em;
+  color: gray;
+  margin-top: 4px;
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>Chapter6</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='chapter-5'><span>Chapter 5</span></h1><h2 id='your-first-cdk-pipeline'><span>Your First CDK Pipeline</span></h2><p><em><span>Ethan felt a sense of accomplishment. He had successfully set up Git for version control, deployed a GitLab server using CDK itself, and learned the collaborative workflow involving issues and merge requests. The </span><code>main</code><span> branch of his </span><code>magicmail-infra</code><span> project on GitLab now reflected the reviewed and merged code.</span></em></p><p><em><span>&quot;Okay, Maya,&quot; Ethan began their next session, &quot;I understand the concepts of CI/CD from last time – automating the build, test, and deployment process. And I see how GitLab provides the framework with pipelines, stages, jobs, and that </span><code>.gitlab-ci.yml</code><span> file. How do we actually make it do something?&quot;</span></em></p><p><em><span>Maya smiled. &quot;Exactly the right question! The magic doesn&#39;t happen on its own. We need two key ingredients: first, an agent – a </span><strong><span>GitLab Runner</span></strong><span> – that can actually execute the commands we define, and second, the instruction manual – the </span><strong><code>.gitlab-ci.yml</code><span> file</span></strong><span> – telling the Runner what to do.&quot;</span></em></p><p><em><span>&quot;So, the Runner is like a worker bee, and the YAML file is its task list?&quot;</span></em><span> Ethan asked.</span></p><p><em><span>&quot;Precisely!&quot; Maya confirmed. &quot;In this chapter, we&#39;ll tackle both. We&#39;ll set up a Runner configured to use the </span><strong><span>Docker executor</span></strong><span>. This runs each job inside a clean Docker container, ensuring a consistent environment defined by a Docker image specified in our </span><code>.gitlab-ci.yml</code><span> file. Then, we&#39;ll create our first </span><code>.gitlab-ci.yml</code><span> file to define a basic pipeline that automates the initial validation steps for our CDK code: installing dependencies, compiling, linting, and testing.&quot;</span></em></p><hr /><p><span>&quot;Before GitLab can run any automated jobs for us, it needs access to an environment where those jobs can execute,&quot; Maya explained. &quot;This environment is provided by a GitLab Runner.&quot;</span></p><h2 id='setting-up-a-gitlab-runner'><span>Setting Up a GitLab Runner</span></h2><h3 id='what-is-a-gitlab-runner'><span>What is a GitLab Runner?</span></h3><p><span>&quot;A GitLab Runner is essentially a process or service that polls your GitLab instance (or GitLab.com) for available CI/CD jobs. When it finds a job it&#39;s configured to handle, it prepares the execution environment (in our case, starting a Docker container), clones the relevant repository code, executes the script defined in the job&#39;s section of </span><code>.gitlab-ci.yml</code><span> inside that environment, and reports the results back to GitLab.&quot;</span></p><div class="md-diagram-panel md-fences-adv-panel" lang="mermaid"><svg id="mermaidChart0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart mermaid-svg" style="max-width: 1290.9140625px;" viewBox="-8 -8 1290.9140625 1051" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mermaidChart0{font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart0 .error-icon{fill:#552222;}#mermaidChart0 .error-text{fill:#552222;stroke:#552222;}#mermaidChart0 .edge-thickness-normal{stroke-width:1px;}#mermaidChart0 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart0 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart0 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaidChart0 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart0 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart0 .marker{fill:#333333;stroke:#333333;}#mermaidChart0 .marker.cross{stroke:#333333;}#mermaidChart0 svg{font-family:sans-serif;font-size:16px;}#mermaidChart0 p{margin:0;}#mermaidChart0 .label{font-family:sans-serif;color:#333;}#mermaidChart0 .cluster-label text{fill:#333;}#mermaidChart0 .cluster-label span{color:#333;}#mermaidChart0 .cluster-label span p{background-color:transparent;}#mermaidChart0 .label text,#mermaidChart0 span{fill:#333;color:#333;}#mermaidChart0 .node rect,#mermaidChart0 .node circle,#mermaidChart0 .node ellipse,#mermaidChart0 .node polygon,#mermaidChart0 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart0 .rough-node .label text,#mermaidChart0 .node .label text,#mermaidChart0 .image-shape .label,#mermaidChart0 .icon-shape .label{text-anchor:middle;}#mermaidChart0 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaidChart0 .rough-node .label,#mermaidChart0 .node .label,#mermaidChart0 .image-shape .label,#mermaidChart0 .icon-shape .label{text-align:center;}#mermaidChart0 .node.clickable{cursor:pointer;}#mermaidChart0 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaidChart0 .arrowheadPath{fill:#333333;}#mermaidChart0 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaidChart0 .flowchart-link{stroke:#333333;fill:none;}#mermaidChart0 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart0 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaidChart0 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart0 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaidChart0 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaidChart0 .cluster text{fill:#333;}#mermaidChart0 .cluster span{color:#333;}#mermaidChart0 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart0 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaidChart0 rect.text{fill:none;stroke-width:0;}#mermaidChart0 .icon-shape,#mermaidChart0 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart0 .icon-shape p,#mermaidChart0 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaidChart0 .icon-shape rect,#mermaidChart0 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart0 :root{--mermaid-alt-font-family:sans-serif;}</style><g><marker id="mermaidChart0_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart0_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart0_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart0_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart0_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart0_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"><g class="cluster " id="subGraph2" data-look="classic"><rect style="" x="634.9140625" y="231" width="640" height="544"></rect><g class="cluster-label " transform="translate(854.9140625, 231)"><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Docker Container (Temporary, per Job)</p></span></div></foreignObject></g></g><g class="cluster " id="subGraph1" data-look="classic"><rect style="" x="8" y="8" width="606.9140625" height="1027"></rect><g class="cluster-label " transform="translate(211.45703125, 8)"><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>GitLab Server (EC2 Instance)</p></span></div></foreignObject></g></g><g class="cluster " id="subGraph0" data-look="classic"><rect style="" x="34.015625" y="33" width="560.8984375" height="340"></rect><g class="cluster-label " transform="translate(214.46484375, 33)"><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Runner Process (Docker Executor)</p></span></div></foreignObject></g></g></g><g class="edgePaths"><path d="M1109.914,348L1109.914,352.167C1109.914,356.333,1109.914,364.667,1109.914,375.583C1109.914,386.5,1109.914,400,1109.914,415.417C1109.914,430.833,1109.914,448.167,1109.914,456.833L1109.914,465.5" id="L_S1_S2_0" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M1109.914,592.5L1109.914,599.25C1109.914,606,1109.914,619.5,1109.914,629.75C1109.914,640,1109.914,647,1109.914,650.5L1109.914,654" id="L_S2_S3_1" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M149.614,887L145.764,877.667C141.914,868.333,134.215,849.667,130.365,831C126.516,812.333,126.516,793.667,126.516,772.5C126.516,751.333,126.516,727.667,126.516,704C126.516,680.333,126.516,656.667,126.516,627.833C126.516,599,126.516,565,126.516,528.417C126.516,491.833,126.516,452.667,126.516,426.333C126.516,400,126.516,386.5,126.516,367.917C126.516,349.333,126.516,325.667,126.516,302C126.516,278.333,126.516,254.667,126.516,233.5C126.516,212.333,126.516,193.667,139.849,175.372C153.183,157.077,179.851,139.154,193.184,130.193L206.518,121.231" id="L_G_R_2" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M255.219,119L255.219,128.333C255.219,137.667,255.219,156.333,255.219,175C255.219,193.667,255.219,212.333,255.219,227.75C255.219,243.167,255.219,255.333,255.219,261.417L255.219,267.5" id="L_R_D_3" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M255.219,332.5L255.219,339.25C255.219,346,255.219,359.5,255.219,373C255.219,386.5,255.219,400,323.683,421.519C392.147,443.038,529.076,472.576,597.54,487.344L666.004,502.113" id="L_D_I_4" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M332.684,119L356.389,128.333C380.094,137.667,427.504,156.333,451.209,175C474.914,193.667,474.914,212.333,558.418,231.003C641.922,249.673,808.931,268.347,892.435,277.683L975.939,287.02" id="L_R_S1_5" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M1109.914,750L1109.914,754.167C1109.914,758.333,1109.914,766.667,986.714,780.167C863.514,793.667,617.115,812.333,478.939,830.657C340.763,848.98,310.81,866.961,295.834,875.951L280.858,884.941" id="L_S3_G_6" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(126.515625, 531)"><g class="label" transform="translate(-52.03125, -15.5)"><foreignObject width="104.0625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "><p>Job available</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(255.21875, 175)"><g class="label" transform="translate(-99.6953125, -15.5)"><foreignObject width="199.390625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "><p>Instructs Docker Daemon</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(255.21875, 413.5)"><g class="label" transform="translate(-95.796875, -15.5)"><foreignObject width="191.59375" height="31"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "><p>Creates/Starts Container</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(474.9140625, 175)"><g class="label" transform="translate(-100, -31)"><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="edgeLabel "><p>Manages Job in Container</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(370.71484375, 831)"><g class="label" transform="translate(-100, -31)"><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="edgeLabel "><p>Reports results via Runner</p></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default  " id="flowchart-R-0" transform="translate(255.21875, 88.5)"><rect class="basic label-container" style="fill:#orange !important;stroke:#333 !important" x="-113.9609375" y="-30.5" width="227.921875" height="61"></rect><g class="label" style="" transform="translate(-83.9609375, -15.5)"><rect></rect><foreignObject width="167.921875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>gitlab-runner process</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-D-1" transform="translate(255.21875, 302)"><rect class="basic label-container" style="fill:#2277B0 !important;stroke:#333 !important" x="-93.703125" y="-30.5" width="187.40625" height="61"></rect><g class="label" style="" transform="translate(-63.703125, -15.5)"><rect></rect><foreignObject width="127.40625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Docker Daemon</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-G-2" transform="translate(174.98046875, 948.5)"><rect class="basic label-container" style="fill:#f9f !important;stroke:#333 !important" x="-130" y="-61.5" width="260" height="123"></rect><g class="label" style="" transform="translate(-100, -46.5)"><rect></rect><foreignObject width="200" height="93"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>GitLab Instance<br/>(Rails App, Database, etc.)</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-I-4" transform="translate(799.9140625, 531)"><rect class="basic label-container" style="fill:#lightgreen !important;stroke:#333 !important" x="-130" y="-77" width="260" height="154"></rect><g class="label" style="" transform="translate(-100, -62)"><rect></rect><foreignObject width="200" height="124"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Based on Image <br/>from Unsupported markdown: codespan<br/>e.g., node:18</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-S3-5" transform="translate(1109.9140625, 704)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>iii. Sends logs/status back</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-S2-6" transform="translate(1109.9140625, 531)"><rect class="basic label-container" style="" x="-130" y="-61.5" width="260" height="123"></rect><g class="label" style="" transform="translate(-100, -46.5)"><rect></rect><foreignObject width="200" height="93"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>ii. Runs script inside Container\n e.g., npm ci, npm run build</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-S1-7" transform="translate(1109.9140625, 302)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>i. Clones Repo inside Container</p></span></div></foreignObject></g></g></g></g></g></svg></div><p><em><span>Diagram: GitLab Runner (Docker Executor) Interaction.</span></em></p><ol start='' ><li><p><span>GitLab makes a job available.</span></p></li><li><p><span>The </span><code>gitlab-runner</code><span> process picks up the job.</span></p></li><li><p><span>The runner instructs the Docker daemon on the host to pull the required image (e.g., </span><code>node:18</code><span>) and start a container.</span></p></li><li><p><span>The runner executes the job&#39;s script inside the container (cloning the repo, running commands).</span></p></li><li><p><span>The runner sends logs and status back to the GitLab instance.*</span></p></li></ol><h3 id='runner-types-and-scope'><span>Runner Types and Scope</span></h3><p><span>&quot;There are different ways Runners can be set up:&quot;</span></p><ol start='' ><li><p><strong><span>Shared Runners:</span></strong><span> On GitLab.com, these are runners managed by GitLab itself, available for multiple projects (often with usage limits on free tiers). They provide a quick way to get started without managing runner infrastructure.</span></p></li><li><p><strong><span>Group Runners:</span></strong><span> Runners available to all projects within a specific GitLab group.</span></p></li><li><p><strong><span>Specific Runners:</span></strong><span> Runners registered and dedicated to a single GitLab project. This offers the most control over the runner&#39;s environment and configuration for a particular project.</span></p></li></ol><div class="md-diagram-panel md-fences-adv-panel" lang="mermaid"><svg id="mermaidChart1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart mermaid-svg" style="max-width: 828.375px;" viewBox="-8 -8 828.375 505.28125" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mermaidChart1{font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart1 .error-icon{fill:#552222;}#mermaidChart1 .error-text{fill:#552222;stroke:#552222;}#mermaidChart1 .edge-thickness-normal{stroke-width:1px;}#mermaidChart1 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart1 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaidChart1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart1 .marker{fill:#333333;stroke:#333333;}#mermaidChart1 .marker.cross{stroke:#333333;}#mermaidChart1 svg{font-family:sans-serif;font-size:16px;}#mermaidChart1 p{margin:0;}#mermaidChart1 .label{font-family:sans-serif;color:#333;}#mermaidChart1 .cluster-label text{fill:#333;}#mermaidChart1 .cluster-label span{color:#333;}#mermaidChart1 .cluster-label span p{background-color:transparent;}#mermaidChart1 .label text,#mermaidChart1 span{fill:#333;color:#333;}#mermaidChart1 .node rect,#mermaidChart1 .node circle,#mermaidChart1 .node ellipse,#mermaidChart1 .node polygon,#mermaidChart1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart1 .rough-node .label text,#mermaidChart1 .node .label text,#mermaidChart1 .image-shape .label,#mermaidChart1 .icon-shape .label{text-anchor:middle;}#mermaidChart1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaidChart1 .rough-node .label,#mermaidChart1 .node .label,#mermaidChart1 .image-shape .label,#mermaidChart1 .icon-shape .label{text-align:center;}#mermaidChart1 .node.clickable{cursor:pointer;}#mermaidChart1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaidChart1 .arrowheadPath{fill:#333333;}#mermaidChart1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaidChart1 .flowchart-link{stroke:#333333;fill:none;}#mermaidChart1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaidChart1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaidChart1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaidChart1 .cluster text{fill:#333;}#mermaidChart1 .cluster span{color:#333;}#mermaidChart1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaidChart1 rect.text{fill:none;stroke-width:0;}#mermaidChart1 .icon-shape,#mermaidChart1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart1 .icon-shape p,#mermaidChart1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaidChart1 .icon-shape rect,#mermaidChart1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart1 :root{--mermaid-alt-font-family:sans-serif;}</style><g><marker id="mermaidChart1_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart1_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart1_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart1_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart1_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart1_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M380.156,58.696L347.401,64.58C314.646,70.464,249.135,82.232,216.38,91.616C183.625,101,183.625,108,183.625,111.5L183.625,115" id="L_A_B_0" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M492.586,69L492.586,73.167C492.586,77.333,492.586,85.667,492.586,93.333C492.586,101,492.586,108,492.586,111.5L492.586,115" id="L_A_C_1" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M605.016,65.923L624.201,70.603C643.385,75.282,681.755,84.641,700.94,92.821C720.125,101,720.125,108,720.125,111.5L720.125,115" id="L_A_D_2" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M110.123,180L100.081,184.167C90.04,188.333,69.958,196.667,59.916,207.573C49.875,218.479,49.875,231.958,49.875,238.698L49.875,245.438" id="L_B_P1_3" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M183.625,180L183.625,184.167C183.625,188.333,183.625,196.667,183.625,207.573C183.625,218.479,183.625,231.958,183.625,238.698L183.625,245.438" id="L_B_P2_4" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M257.127,180L267.169,184.167C277.21,188.333,297.292,196.667,307.334,207.573C317.375,218.479,317.375,231.958,317.375,238.698L317.375,245.438" id="L_B_P3_5" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M492.586,180L492.586,184.167C492.586,188.333,492.586,196.667,492.586,209.469C492.586,222.271,492.586,239.542,492.586,248.177L492.586,256.813" id="L_C_G1_6" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M444.638,321.813L430.015,331.115C415.392,340.417,386.145,359.021,371.522,371.904C356.898,384.786,356.898,391.948,356.898,395.529L356.898,399.109" id="L_G1_GP1_7" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M492.586,321.813L492.586,331.115C492.586,340.417,492.586,359.021,492.586,371.904C492.586,384.786,492.586,391.948,492.586,395.529L492.586,399.109" id="L_G1_GP2_8" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M540.705,321.813L555.38,331.115C570.056,340.417,599.407,359.021,614.082,371.823C628.758,384.625,628.758,391.625,628.758,395.125L628.758,398.625" id="L_G1_GP3_9" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M720.125,180L720.125,184.167C720.125,188.333,720.125,196.667,720.125,204.333C720.125,212,720.125,219,720.125,222.5L720.125,226" id="L_D_SP_10" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default  " id="flowchart-A-26" transform="translate(492.5859375, 38.5)"><rect class="basic label-container" style="fill:#ffd6a5 !important;stroke:#333 !important;stroke-width:2px !important" x="-112.4296875" y="-30.5" width="224.859375" height="61"></rect><g class="label" style="" transform="translate(-82.4296875, -15.5)"><rect></rect><foreignObject width="164.859375" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>GitLab Runner Types</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-B-28" transform="translate(183.625, 149.5)"><rect class="basic label-container" style="fill:#b2f2bb !important;stroke:#333 !important" x="-88.6875" y="-30.5" width="177.375" height="61"></rect><g class="label" style="" transform="translate(-58.6875, -15.5)"><rect></rect><foreignObject width="117.375" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Shared Runner</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-C-30" transform="translate(492.5859375, 149.5)"><rect class="basic label-container" style="fill:#b2f2bb !important;stroke:#333 !important" x="-85.2890625" y="-30.5" width="170.578125" height="61"></rect><g class="label" style="" transform="translate(-55.2890625, -15.5)"><rect></rect><foreignObject width="110.578125" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Group Runner</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-D-32" transform="translate(720.125, 149.5)"><rect class="basic label-container" style="fill:#b2f2bb !important;stroke:#333 !important" x="-92.25" y="-30.5" width="184.5" height="61"></rect><g class="label" style="" transform="translate(-62.25, -15.5)"><rect></rect><foreignObject width="124.5" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Specific Runner</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-P1-34" transform="translate(49.875, 291.3125)"><circle class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important;stroke-width:1px !important" r="41.875" cx="0" cy="0"></circle><g class="label" style="" transform="translate(-34.375, -15.5)"><rect></rect><foreignObject width="68.75" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Project 1</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-P2-36" transform="translate(183.625, 291.3125)"><circle class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important;stroke-width:1px !important" r="41.875" cx="0" cy="0"></circle><g class="label" style="" transform="translate(-34.375, -15.5)"><rect></rect><foreignObject width="68.75" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Project 2</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-P3-38" transform="translate(317.375, 291.3125)"><circle class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important;stroke-width:1px !important" r="41.875" cx="0" cy="0"></circle><g class="label" style="" transform="translate(-34.375, -15.5)"><rect></rect><foreignObject width="68.75" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Project 3</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-G1-40" transform="translate(492.5859375, 291.3125)"><rect class="basic label-container" style="fill:#c5f6fa !important;stroke:#333 !important" x="-83.3359375" y="-30.5" width="166.671875" height="61"></rect><g class="label" style="" transform="translate(-53.3359375, -15.5)"><rect></rect><foreignObject width="106.671875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>GitLab Group</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-GP1-42" transform="translate(356.8984375, 445.953125)"><circle class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important;stroke-width:1px !important" r="42.84375" cx="0" cy="0"></circle><g class="label" style="" transform="translate(-35.34375, -15.5)"><rect></rect><foreignObject width="70.6875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Project A</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-GP2-44" transform="translate(492.5859375, 445.953125)"><circle class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important;stroke-width:1px !important" r="42.84375" cx="0" cy="0"></circle><g class="label" style="" transform="translate(-35.34375, -15.5)"><rect></rect><foreignObject width="70.6875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Project B</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-GP3-46" transform="translate(628.7578125, 445.953125)"><circle class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important;stroke-width:1px !important" r="43.328125" cx="0" cy="0"></circle><g class="label" style="" transform="translate(-35.828125, -15.5)"><rect></rect><foreignObject width="71.65625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Project C</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-SP-48" transform="translate(720.125, 291.3125)"><circle class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important;stroke-width:1px !important" r="61.3125" cx="0" cy="0"></circle><g class="label" style="" transform="translate(-53.8125, -15.5)"><rect></rect><foreignObject width="107.625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Single Project</p></span></div></foreignObject></g></g></g></g></g></svg></div><p><em><span>Diagram: GitLab Runner Types</span></em></p><p><span>&quot;Furthermore, Runners can be installed on various operating systems (Linux, macOS, Windows) and can use different executors to run jobs, such as:&quot;</span></p><ul><li><p><strong><span>Shell Executor:</span></strong><span> Runs jobs directly on the host. Simple but requires careful host environment management and offers less isolation.</span></p></li><li><p><strong><span>Docker Executor:</span></strong><span> (What we&#39;ll use) Runs each job in a clean Docker container based on an image specified in `.gitlab-ci.yml. This is highly recommended as it provides isolation, ensures a consistent environment defined by the image (e.g., Node.js version), and avoids polluting the host machine with job-specific dependencies.</span></p></li><li><p><strong><span>Kubernetes Executor:</span></strong><span> Runs jobs as pods in a Kubernetes cluster. Powerful for scaling.</span></p></li><li><p><strong><span>(Others exist)</span></strong></p></li></ul><h3 id='runner-strategy-for-our-project'><span>Runner Strategy for Our Project</span></h3><p><span>&quot;For our self-hosted GitLab server,&quot; Maya explained, &quot;we need to provide our own runner, and it&#39;ll be a </span><strong><span>Specific Runner</span></strong><span> type for our MagicMail project. We&#39;ll install the GitLab Runner software on the same EC2 instance that hosts our GitLab application, but we&#39;ll configure this runner to use the </span><strong><span>Docker Executor</span></strong><span>. This means each CI/CD job will run inside a temporary Docker container, ensuring a clean and consistent environment based on the Docker image we specify later in our </span><code>.gitlab-ci.yml</code><span> file. To enable this, we also need to install the Docker Engine on the EC2 instance itself, allowing the runner to manage these containers.&quot;</span></p><h3 id='installing-and-registering-the-runner-docker-executor'><span>Installing and Registering the Runner (Docker Executor)</span></h3><p><span>&quot;Let&#39;s connect to our GitLab EC2 instance using </span><strong><span>SSM Session Manager</span></strong><span> and get Docker and the runner set up.&quot;</span></p><ol start='' ><li><p><strong><span>Connect via SSM:</span></strong><span> Use the </span><code>SsmCommand</code><span> output from the </span><code>GitLabServerStack</code><span> deployment (from Chapter 2). Remember to use the correct AWS profile if needed.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Example: aws ssm start-session --target i-0abcdef1234567890 --profile magicmail-dev</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">aws ssm start-session <span class="cm-attribute">--target</span> &lt;YOUR_INSTANCE_ID&gt; [--profile your-profile-name]</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 84px;"></div><div class="CodeMirror-gutters" style="display: none; height: 84px;"></div></div></div></pre><p><em><span>(Alternatively, if you had separately configured SSH access with a key pair, you could use ssh ubuntu@&lt;YOUR_INSTANCE_PUBLIC_IP&gt; -i /path/to/your/key.pem, but SSM is the method we set up).</span></em></p></li><li><p><strong><span>Install Docker Engine:</span></strong><span> We need to install Docker on the Ubuntu instance. Follow the official Docker installation steps for Ubuntu:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Update package index and install prerequisites</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt-get update</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt-get install <span class="cm-attribute">-y</span> ca-certificates <span class="cm-builtin">curl</span> gnupg</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Add Docker's official GPG key</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> install <span class="cm-attribute">-m</span> <span class="cm-number">0755</span> <span class="cm-attribute">-d</span> /etc/apt/keyrings</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">curl</span> <span class="cm-attribute">-fsSL</span> https://download.docker.com/linux/ubuntu/gpg | <span class="cm-builtin">sudo</span> gpg <span class="cm-attribute">--dearmor</span> <span class="cm-attribute">-o</span> /etc/apt/keyrings/docker.gpg</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> <span class="cm-builtin">chmod</span> a<span class="cm-operator">+</span>r /etc/apt/keyrings/docker.gpg</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Set up the Docker repository</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">echo</span> \</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"deb [arch=</span><span class="cm-quote">$(dpkg --print-architecture)</span><span class="cm-string"> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;</span><span class="cm-quote">$(. /etc/os-release &amp;&amp; echo </span><span class="cm-def">$VERSION_CODENAME</span><span class="cm-quote">)</span><span class="cm-string"> stable"</span> | \</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">sudo</span> <span class="cm-builtin">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Install Docker Engine</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt-get update</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt-get install <span class="cm-attribute">-y</span> docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Verify Docker installation (optional)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt-get install <span class="cm-attribute">-y</span> docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Run hello-world to confirm docker installation</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> docker run hello-world</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 609px;"></div><div class="CodeMirror-gutters" style="display: none; height: 609px;"></div></div></div></pre></li></ol><p><img src="images/book2-chap5-runner-docker-hello.png" referrerpolicy="no-referrer" alt="book2-chap5-runner-docker-hello">
+<em><span>Caption: Installing Docker Engine on the Ubuntu server.</span></em></p><ol start='3' ><li><p><strong><span>Install GitLab Runner:</span></strong><span> Now install the runner package itself.  Go to the Magicmail Infra Project </span><strong><span>CICD Settings --&gt; Runners</span></strong><span>. Follow the instructions from </span><strong><span>&quot;Show runner installation and registration instructions&quot;</span></strong><span>.  Our server is a </span><code>deb</code><span> package based distribution. </span></p><p><img src="images/book2-chap5-runner-installation-instruction.png" referrerpolicy="no-referrer" alt="book2-chap5-runner-installation-instruction">
+<em><span>Caption: Project Runner Installation Instructions</span></em></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-comment"># Download the binary for your system</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-builtin">sudo</span> <span class="cm-builtin">curl</span> <span class="cm-attribute">-L</span> <span class="cm-attribute">--output</span> /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-comment"># Give it permission to execute</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-builtin">sudo</span> <span class="cm-builtin">chmod</span> <span class="cm-operator">+</span>x /usr/local/bin/gitlab-runner</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-comment"># Create a GitLab Runner user</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-builtin">sudo</span> useradd <span class="cm-attribute">--comment</span> <span class="cm-string">'GitLab Runner'</span> <span class="cm-attribute">--create-home</span> gitlab-runner <span class="cm-attribute">--shell</span> /bin/bash</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-comment"># Install and run as a service</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-builtin">sudo</span> gitlab-runner install <span class="cm-attribute">--user</span><span class="cm-operator">=</span>gitlab-runner <span class="cm-attribute">--working-directory</span><span class="cm-operator">=</span>/home/gitlab-runner</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-builtin">sudo</span> gitlab-runner <span class="cm-builtin">start</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-comment"># If using a `deb` package based distribution</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-builtin">curl</span> <span class="cm-attribute">-s</span> https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | <span class="cm-builtin">sudo</span> <span class="cm-builtin">bash</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> apt install <span class="cm-attribute">-y</span> gitlab-runner</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-comment"># If using an `rpm` package based distribution</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-builtin">curl</span> <span class="cm-attribute">-s</span> https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh | <span class="cm-builtin">sudo</span> <span class="cm-builtin">bash</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> dnf install <span class="cm-attribute">-y</span> gitlab-runner</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 546px;"></div><div class="CodeMirror-gutters" style="display: none; height: 546px;"></div></div></div></pre><p><span> </span><img src="images/book2-chap5-install-runner.png" referrerpolicy="no-referrer" alt="book2-chap5-install-runner">
+<span> </span><em><span>Caption: Installing the GitLab Runner package on the Ubuntu server.</span></em></p></li><li><p><strong><span>Register the Runner (Docker Executor with Tag):</span></strong><span> Now, register the runner, specify </span><code>docker</code><span> as the executor, and crucially, </span><strong><span>add a tag</span></strong><span> so we can specifically target this runner.  Follow the instructions from </span><strong><span>&quot;Command to register runner&quot;</span></strong><span>.</span></p><ul><li><p><strong><span>Get Token from GitLab:</span></strong><span> Go to your project&#39;s Settings -&gt; CI/CD -&gt; Runners and copy the Registration Token.</span></p></li></ul><p><img src="images/book2-chap5-runner-token-registration.png" referrerpolicy="no-referrer" alt="book2-chap5-runner-token-registration">
+<em><span>Caption: Finding the project-specific runner registration token in GitLab.</span></em>
+<span>(Note on Tokens: GitLab is transitioning towards Authentication Tokens, but Registration Tokens still work for this manual setup.)</span></p><ul><li><p><strong><span>Run Registration Command (Copy from GitLab instructions):</span></strong></p></li></ul><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> gitlab-runner register <span class="cm-attribute">--url</span> http://12.34.56.78/ <span class="cm-attribute">--registration-token</span> GR1348941A7-sxAGFwXXyfz9mxyV6</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 42px;"></div><div class="CodeMirror-gutters" style="display: none; height: 42px;"></div></div></div></pre><ul><li><p><strong><span>Answer Prompts:</span></strong></p><ul><li><p><code>Enter the GitLab instance URL...:</code><span>Enter your server URL (e.g., http://&lt;YOUR_INSTANCE_PUBLIC_IP&gt;).</span></p></li><li><p><code>Enter the registration token:</code><span> Paste the token.</span></p></li><li><p><code>Enter a description for the runner:</code><span> e.g., </span><code>GitLab Server Docker Runner</code><span>.</span></p></li><li><p><code>Enter tags for the runner (comma-separated)</code><span>: Type </span><code>docker</code><span> and press Enter.</span></p></li><li><p><code>Enter optional maintenance note...:</code><span> Leave blank (press Enter).</span></p></li><li><p><code>Enter an executor:</code><span> Type </span><code>docker</code><span> and press Enter.</span></p></li><li><p><code>Enter the default Docker image...:</code><span> Enter </span><code>node:18</code><span> (or your preferred version) and press Enter.</span></p></li><li><p><span>Confirmation: </span><code>Runner registered successfully.</code></p></li></ul></li></ul></li></ol><ol start='5' ><li><p><strong><span>Verify Runner:</span></strong></p><ul><li><p><span>Check the </span><strong><span>Settings -&gt; CI/CD -&gt; Runners</span></strong><span> page in GitLab. Your new runner should appear, and it should list the </span><code>docker</code><span> tag.</span></p></li><li><p><span>Check status in the terminal:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> gitlab-runner status</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre><p><span>It should show </span><code>gitlab-runner: Service is running</code><span>.</span></p></li></ul></li></ol><p><span>&quot;Excellent!&quot; Maya said. &quot;Now we have a Runner configured to use Docker, and it has the tag </span><code>docker</code><span>. We can use this tag in our </span><code>.gitlab-ci.yml</code><span> to ensure jobs run using this specific runner and executor.&quot;</span></p><h2 id='creating-a-simple-pipeline'><span>Creating a Simple Pipeline</span></h2><p><span>&quot;Now for the instruction manual,&quot; Maya said. &quot;We need to create a file named </span><code>.gitlab-ci.yml</code><span> (note the leading dot) in the root directory of our local </span><code>magicmail-infra</code><span> project.&quot;</span>
+<span>&quot;This file uses YAML syntax, which relies heavily on indentation (spaces, not tabs!) to define structure. It tells GitLab CI/CD what stages and jobs to run.&quot;</span></p><h3 id='basic-pipeline-structure-docker-executor---build-only'><span>Basic Pipeline Structure (Docker Executor) - Build Only</span></h3><p><span>&quot;Let&#39;s start with the absolute simplest pipeline: one stage (</span><code>build</code><span>) with one job (</span><code>build_app</code><span>) that just installs dependencies and compiles the TypeScript code. Create the </span><code>.gitlab-ci.yml</code><span> file in the root of your project and add the following content:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="yaml" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="yaml"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># .gitlab-ci.yml - Simple Version 1 (Build Only)</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">stages</span><span class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> - </span>build</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">default</span><span class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> image</span><span class="cm-meta">: </span>node<span class="cm-meta">:</span><span class="cm-number">18</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> tags</span><span class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp; - </span>docker <span class="cm-comment"># Ensure jobs use our tagged Docker runner</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">build_app</span><span class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> stage</span><span class="cm-meta">: </span>build</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> script</span><span class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp; - </span>echo <span class="cm-string">"Starting the build process inside $NODE_VERSION..."</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp; - </span>node -v</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp; - </span>npm -v</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp; - </span>echo <span class="cm-string">"Installing dependencies..."</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp; - </span>npm ci</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp; - </span>echo <span class="cm-string">"Compiling TypeScript..."</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp; - </span>npm run build</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp; - </span>echo <span class="cm-string">"Build finished!"</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 441px;"></div><div class="CodeMirror-gutters" style="display: none; height: 441px;"></div></div></div></pre><p><span>&quot;Let&#39;s break this down:&quot;</span></p><ul><li><p><code>stages:</code><span>: We define just one stage named build.</span></p></li><li><p><code>default:</code><span>: Applies settings to all jobs.</span></p><ul><li><p><code>image: node:18</code><span>: Tells the Docker executor to use this image.</span></p></li><li><p><code>tags: - docker</code><span>: Ensures jobs run on our runner tagged with docker.</span></p></li></ul></li><li><p><code>build_app:</code><span>: Our job name.</span></p></li><li><p><code>stage: build</code><span>: Assigns the job to the build stage.</span></p></li><li><p><code>script:</code><span>: The commands executed inside the </span><code>node:18</code><span> container: checking versions, installing dependencies (</span><code>npm ci</code><span>), and compiling (</span><code>npm run build</code><span>).</span></p></li></ul><h3 id='committing-and-running-the-simple-pipeline'><span>Committing and Running the Simple Pipeline</span></h3><p><span>&quot;Now, let&#39;s commit this initial </span><code>.gitlab-ci.yml</code><span> file:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><p><span>&quot;Pushing this commit will trigger the pipeline.&quot;</span></p><ol start='' ><li><p><strong><span>Go to GitLab:</span></strong><span> Navigate to </span><strong><span>CI/CD -&gt; Pipelines</span></strong><span>.</span></p></li><li><p><strong><span>Observe:</span></strong><span> You should see the new pipeline running with the </span><code>build_app</code><span> job.</span></p></li><li><p><strong><span>Check Logs:</span></strong><span> Click into the </span><code>build_app</code><span> job. Verify it uses the Docker runner and executes the </span><code>npm ci</code><span> and </span><code>npm run build</code><span> commands successfully inside the container.</span></p></li></ol><p><img src="images/book2-chap5-cicd-simple-singlestage.png" referrerpolicy="no-referrer" alt="book2-chap5-cicd-simple-singlestage">
+<em><span>Caption: Simple build pipeline job completed successfully.</span></em></p><p><span>&quot;Great! The basic build automation works.&quot;</span></p><h2 id='creating-a-multi-stage-pipeline'><span>Creating a Multi-Stage Pipeline</span></h2><p><strong><span>Prerequisite: Setup ESLint Configuration</span></strong></p><p><span>&quot;Okay, the basic build works. Now, before we add validation jobs like linting to our pipeline, we need to make sure our project is set up correctly for ESLint,&quot; Maya explained.</span></p><ol start='' ><li><p><strong><span>Understanding Linting:</span></strong>
+<span>&quot;First, what </span><em><span>is</span></em><span> linting?&quot; Maya asked rhetorically. &quot;Linting is the process of using an automated tool (a &#39;linter&#39;) to analyze your source code for potential errors, stylistic inconsistencies, and deviations from best practices or predefined coding standards. For TypeScript, a very popular linter is ESLint.&quot;</span>
+<span>&quot;Why is linting important, especially in CI/CD?&quot;</span></p><ul><li><p><strong><span>Consistency:</span></strong><span> It helps ensure everyone on the team writes code that follows the same style guide (e.g., indentation, variable naming, use of semicolons), making the codebase easier to read and maintain.</span></p></li><li><p><strong><span>Early Error Detection:</span></strong><span> Linters can often catch simple syntax errors or potential logical issues (like unused variables) before you even run the code or tests.</span></p></li><li><p><strong><span>Best Practices:</span></strong><span> They can enforce adherence to language best practices, helping prevent common pitfalls.</span></p></li><li><p><strong><span>Automation:</span></strong><span> Running the linter automatically in our CI pipeline ensures that code merged into </span><code>main</code><span> meets the project&#39;s quality standards without requiring manual checks for every single style issue during code reviews.</span></p></li></ul></li><li><p><strong><span>Create ESLint Config File</span></strong><span> (</span><code>.eslintrc.js</code><span>):</span>
+<span>&quot;It seems </span><code>cdk init</code><span> might not have created an ESLint configuration file for us. ESLint needs this file to know how to check our code. Let&#39;s create a basic one compatible with ESLint v8 (which we&#39;ll install next). In the root of your local </span><code>magicmail-infra</code><span> project, create a file named </span><code>.eslintrc.js</code><span> and add the following content:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><p><span>&quot;Save this file. This tells ESLint how to handle our TypeScript code and applies a standard set of recommended rules.&quot;</span></p></li><li><p><strong><span>Update </span><code>.gitignore</code><span>:</span></strong>
+<span>&quot;Crucially, our default </span><code>.gitignore</code><span> file likely contains </span><code>*.js</code><span>, which would prevent Git from tracking our new </span><code>.eslintrc.js</code><span> file! We need to add an exception for it.&quot;</span>
+<span>&quot;Open your local </span><code>.gitignore</code><span> file and add the following line:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><p><span>&quot;Save the .gitignore file.&quot;</span></p></li><li><p><strong><span>Install Linter Dependencies (ESLint v8):</span></strong>
+<span>&quot;Now, let&#39;s install ESLint v8 and its TypeScript plugins as development dependencies. We specify v8 because it uses the </span><code>.eslintrc.js</code><span> format we just created.&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><ul><li><p><span>This installs the necessary packages and updates package.json and package-lock.json.</span></p></li></ul></li><li><p><strong><span>Add/Update Lint Script in </span><code>package.json</code><span>:</span></strong>
+<span>&quot;Finally, let&#39;s add or update the </span><code>lint</code><span> script in </span><code>package.json</code><span> to run ESLint, explicitly telling it which config file to use with the </span><code>-c</code><span> flag. This can help avoid potential issues where ESLint might search in unexpected directories within the CI environment.&quot;</span>
+<span>&quot;Open your local </span><code>package.json</code><span> file and ensure the </span><code>lint</code><span> script in the </span><code>scripts</code><span> section looks like this:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="json"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><ul><li><p><code>eslint . --ext .ts</code><span>: Lints TS files in the current directory.</span></p></li><li><p><code>-c .eslintrc.js</code><span>: Explicitly tells ESLint to use the </span><code>.eslintrc.js</code><span> file in the current directory.</span>
+<span>&quot;Save the </span><code>package.json</code><span> file.&quot;</span></p></li></ul></li><li><p><strong><span>Commit Prerequisite Changes:</span></strong>
+<span>&quot;Before we modify the pipeline, let&#39;s commit these setup changes:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><p><span>&quot;Now our project is ready for linting.&quot;</span></p></li></ol><p><strong><span>Adding Validation Stage to Pipeline</span></strong>
+<span>&quot;Let&#39;s make the pipeline more useful by adding a </span><code>validate</code><span> stage to run our new lint script and the existing tests,&quot; Maya suggested.</span>
+<span>&quot;Update your </span><code>.gitlab-ci.yml</code><span> file:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="yaml" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="yaml"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><p><span>&quot;Here&#39;s what changed:&quot;</span></p><ul><li><p><code>stages:</code><span>: Added </span><code>validate</code><span> before </span><code>build</code><span>.</span></p></li><li><p><code>lint_code</code><span> </span><strong><span>Job:</span></strong><span> Added to validate stage, runs </span><code>npm ci</code><span> and </span><code>npm run lint</code><span>.</span></p></li><li><p><code>test_code</code><span> </span><strong><span>Job:</span></strong><span> Added to </span><code>validate</code><span> stage, runs </span><code>npm ci</code><span> and </span><code>npm run test</code><span>.</span></p><ul><li><p><strong><span>Jest Context:</span></strong><span> The </span><code>echo</code><span> statements clarify that this job runs the default Jest test created by </span><code>cdk init</code><span>, which primarily checks if the CDK stack can be synthesized into a CloudFormation template without errors.</span></p></li></ul></li><li><p><code>build_app</code><span> </span><strong><span>Job:</span></strong><span> Remains unchanged in the </span><code>build</code><span> stage for now</span></p></li></ul><p><span>&quot;This pipeline doesn&#39;t compile or synthesize yet, but it provides a crucial first step: automatically checking code quality and running unit tests whenever code is pushed.&quot;</span></p><p><strong><span>Committing and Running the Multi-Stage Pipeline</span></strong></p><p><span>&quot;Now, let&#39;s commit the updated </span><code>.gitlab-ci.yml</code><span> file:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><p><span>&quot;Check </span><strong><span>CI/CD -&gt; Pipelines</span></strong><span> in GitLab again. You&#39;ll see a new pipeline with the </span><code>validate</code><span> and </span><code>build</code><span> stages. The two jobs in </span><code>validate</code><span> should run first (potentially in parallel). If they both pass, the </span><code>build_app</code><span> job in the </span><code>build</code><span>stage will run.&quot;</span></p><p><img src="images/book2-chap5-multistage-cicd-pipeline-with-lint-and-jest.png" referrerpolicy="no-referrer" alt="book2-chap5-multistage-cicd-pipeline-with-lint-and-jest">
+<em><span>Caption: Pipeline view showing multiple stages and jobs.</span></em></p><p><span>&quot;If the </span><code>lint_code</code><span> job fails,&quot; Maya added as a note, &quot;it means ESLint found issues in your code. Click the job, examine the log to see the specific errors, fix them locally in your editor, run </span><code>npm run lint</code><span> locally to verify, then commit and push the fixes. The pipeline will run again, hopefully passing this time. A failing lint job is the pipeline doing its job!&quot;</span></p><p><span>Ethan said &quot;Yes. My job failed with lint error like this. I had forgotten to add the output for DynamoDB Table Name. Lint is doing its job!!&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><p><span>&quot;If all jobs pass, the pipeline succeeds! We now have automated linting and testing running before our build.&quot;</span></p><h2 id='optimizing-the-pipeline-cache-and-needs'><span>Optimizing the Pipeline: Cache and Needs</span></h2><h3 id='what-is-cache-and-needs'><span>What is Cache and Needs?</span></h3><p><span>&quot;Our current pipeline works, but it&#39;s inefficient,&quot; Maya pointed out. &quot;Notice that the </span><code>lint_code</code><span>, </span><code>test_code</code><span>, and </span><code>build_app</code><span> jobs all run </span><code>npm ci</code><span> independently. This means we&#39;re downloading and installing all our Node.js dependencies three times, which is slow.&quot;</span>
+<span>&quot;We can fix this using </span><code>cache</code><span> and </span><code>needs</code><span>.&quot;</span></p><ol start='' ><li><p><code>cache</code><span>: Saves directories (like </span><code>node_modules</code><span>) after a job runs. Subsequent jobs can reuse this cache.</span></p></li><li><p><code>needs</code><span>: Creates explicit dependencies between jobs, allowing jobs in later stages to start as soon as their specific dependencies are met, rather than waiting for the entire previous stage. It also allows jobs to download artifacts or caches from the jobs they need.</span>
+<span>&quot;Let&#39;s refactor our </span><code>.gitlab-ci.yml</code><span>.&quot;</span></p></li></ol><h3 id='refactored-`gitlab-ciyml`-with-cache-and-needs'><span>Refactored </span><code>.gitlab-ci.yml</code><span> with Cache and Needs</span></h3><p><span>&quot;Update your </span><code>.gitlab-ci.yml</code><span> file with the following:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="yaml" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="yaml"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><p><span>&quot;Let&#39;s look at the key changes:&quot;</span></p><ul><li><p><strong><span>New </span><code>prepare</code><span> Stage:</span></strong><span> Added before validate and build.</span></p></li><li><p><strong><code>install_deps</code><span> Job:</span></strong><span> Runs npm ci once in the prepare stage and creates/pushes the node_modules cache.</span></p></li><li><p><strong><code>lint_code</code><span>, </span><code>test_code</code><span>, </span><code>compile_cod</code><span>e Jobs:</span></strong></p><ul><li><p><span>No longer run </span><code>npm ci</code><span>.</span></p></li><li><p><span>Added </span><code>needs: [install_deps]</code><span> to declare dependency on the </span><code>install_deps</code><span> job.</span></p></li><li><p><span>Added </span><code>cache:</code><span> with </span><code>policy: pull</code><span> to download and use the cache created by </span><code>install_deps</code><span>.</span></p></li></ul></li><li><p><strong><code>compile_code</code><span> Job:</span></strong><span> Renamed from </span><code>build_app</code><span> and placed in the </span><code>build</code><span> stage. It now only runs </span><code>npm run build</code><span>. (Note: We could make this depend on the </span><code>validate</code><span> jobs by adding </span><code>needs: [lint_code, test_code]</code><span> if we wanted stricter sequencing).</span></p></li></ul><p><span>&quot;With this structure,&quot; Maya explained, &quot;</span><code>npm ci</code><span> runs only once. The </span><code>lint_code</code><span>, </span><code>test_code</code><span>, and </span><code>compile_code</code><span> jobs download the cache and run their specific tasks much faster.&quot;</span></p><h3 id='committing-and-running-the-optimized-pipeline'><span>Committing and Running the Optimized Pipeline</span></h3><p><span>&quot;Save the updated </span><code>.gitlab-ci.yml</code><span>.&quot;</span>
+<span>&quot;Commit and push this optimized version:&quot;</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre><p><span>&quot;Check </span><strong><span>CI/CD -&gt; Pipelines</span></strong><span> again. Observe the new pipeline run. You should see the </span><code>prepare</code><span> stage run first, followed by the </span><code>validate</code><span> and </span><code>build</code><span> stages (whose jobs might run somewhat in parallel as they both depend only on </span><code>prepare</code><span>). Check the logs for the jobs in </span><code>validate</code><span> and </span><code>build</code><span> – you should see messages indicating the cache is being downloaded (</span><code>Restoring cache...</code><span>).&quot;</span></p><p><img src="images/book2-chap5-optimized-cicd-pipeline.png" referrerpolicy="no-referrer" alt="book2-chap5-optimized-cicd-pipeline">
+<em><span>Caption: Optimized pipeline showing separate prepare, validate and build stages.</span></em></p><p><img src="images/book2-chap5-cicd-using-cache-node-modules.png" referrerpolicy="no-referrer" alt="book2-chap5-cicd-using-cache-node-modules">
+<em><span>Caption: Job log indicating the node_modules cache was successfully downloaded.</span></em></p><p><span>&quot;This optimized structure forms a solid foundation for our CI pipeline.&quot;</span></p><h2 id='tagging-the-end-of-chapter-5'><span>Tagging the End of Chapter 5</span></h2><p><span>&quot;Before we wrap up, let&#39;s tag the current state of our </span><code>main</code><span> branch to mark the completion of Chapter 5,&quot; said Maya. &quot;This helps us to check out the code as it should be at this point.&quot;</span></p><ol start='' ><li><p><strong><span>Ensure </span><code>main</code><span> is Up-to-Date:</span></strong><span> Make sure you are on the </span><code>main</code><span> branch locally and have pulled the latest changes:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre></li><li><p><strong><span>Create Local Tag:</span></strong><span> Create the tag pointing to the latest commit on main:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre></li><li><p><strong><span>Push Tag:</span></strong><span> Push this new tag to the remote GitLab server</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div></pre></li></ol><h2 id='wrapping-up-chapter-5'><span>Wrapping Up Chapter 5</span></h2><p><span>&quot;Today was a major hands-on breakthrough, Ethan,&quot; Maya said. &quot;You now have a working CI pipeline that automatically installs dependencies, lints your code, runs tests, and builds your project — every time you push changes.&quot;</span></p><p><span>&quot;You even optimized it for speed and efficiency using caching and dependencies — just like professional CI/CD setups.&quot;</span></p><p><span>Maya smiled. &quot;This is the kind of foundation that scales. In the next chapter, we&#39;ll expand your pipeline to interact with AWS — automatically synthesizing, previewing, and eventually deploying your infrastructure changes.&quot;</span></p><hr /><h2 id='ethans-homework'><span>Ethan&#39;s Homework</span></h2><blockquote><ol start='' ><li><p><strong><span>Explore Caching:</span></strong><span> Read the GitLab CI/CD documentation specifically about the </span><code>cache</code><span> keyword. Understand the difference between </span><code>pull-push</code><span> and </span><code>pull</code><span> policies.</span></p></li><li><p><strong><span>Explore </span><code>needs</code></strong><span>: Read the documentation about the </span><code>needs</code><span> keyword and how it allows creating a Directed Acyclic Graph (DAG) of job dependencies, potentially overriding stage order.</span></p></li><li><p><strong><span>Strict Sequencing:</span></strong><span> Modify the </span><code>compile_code</code><span> job&#39;s </span><code>needs</code><span> keyword to make it depend on both </span><code>lint_code</code><span> and </span><code>test_code</code><span>, ensuring compilation only happens after validation fully succeeds. Push the change and observe the pipeline graph.</span></p></li></ol></blockquote><h2 id='key-takeaways'><span>Key Takeaways</span></h2><blockquote><ul><li><p><span>GitLab Runners execute CI/CD jobs. The </span><strong><span>Docker executor</span></strong><span> is recommended for providing isolated and consistent job environments using Docker images.</span></p></li><li><p><span>Docker Engine must be installed on the host machine when using the Docker executor.</span></p></li><li><p><span>Runners are registered to a GitLab instance/project using a </span><strong><span>Registration Token</span></strong><span> (or newer Authentication Tokens). </span><strong><span>Tags</span></strong><span> are used to control which runners execute which jobs.</span></p></li><li><p><span>The </span><code>.gitlab-ci.yml</code><span> file defines the pipeline structure.</span></p></li><li><p><code>stages:</code><span> defines the sequential execution order of job groups.</span></p></li><li><p><code>image:</code><span> (used by Docker executor) specifies the Docker image for the job environment.</span></p></li><li><p><code>tags:</code><span> directs jobs to runners with matching tags.</span></p></li><li><p><code>script:</code><span> contains the shell commands executed by the runner.</span></p></li><li><p><span>Linting (</span><code>eslint</code><span>) and Testing (</span><code>jest</code><span>) are crucial validation steps to include early in the pipeline.</span></p></li><li><p><span>Project dependencies (</span><code>eslint</code><span>, </span><code>@typescript-eslint/*</code><span>, etc.) must be listed in </span><code>package.json</code><span> so </span><code>npm ci</code><span> installs them.</span></p></li><li><p><span>Configuration files (</span><code>.eslintrc.js</code><span>) must exist in the repository (and not be ignored by </span><code>.gitignore</code><span>) for tools like ESLint to function.</span></p></li><li><p><code>cache:</code><span> speeds up pipelines by reusing downloaded dependencies (</span><code>node_modules</code><span>) or build outputs between jobs/pipelines based on a </span><code>key</code><span> (often </span><code>package-lock.json</code><span>).</span></p></li><li><p><code>needs:</code><span> creates explicit dependencies between jobs, allowing for more complex execution flows than simple stage sequencing and enabling earlier stages to use &gt;- &gt;- &gt;- </span><code>artifacts:</code><span> saves files/directories from a job for later use or download.</span></p></li></ul></blockquote><h2 id='looking-ahead'><span>Looking Ahead</span></h2><p><span>We&#39;ve successfully built a CI pipeline that automatically validates our CDK code using linting and testing, optimized with caching. The next logical step is to integrate our pipeline with AWS to perform actions like </span><code>cdk synth</code><span>, </span><code>cdk diff</code><span>, and eventually </span><code>cdk deploy</code><span>. Chapter 6 will focus on securely configuring AWS credentials within the GitLab CI/CD environment and adding jobs to synthesize our templates and preview changes using </span><code>cdk diff</code><span>, bringing us closer to fully automated infrastructure management.</span></p><h2 id='key-services--concepts-introduced'><span>Key Services &amp; Concepts Introduced</span></h2><h3 id='gitlab-features'><span>GitLab Features:</span></h3><blockquote><ul><li><p><strong><span>GitLab Runner:</span></strong><span> Installation, Registration (Docker Executor, Tags).</span></p></li><li><p><strong><code>.gitlab-ci.yml</code><span>:</span></strong><span> Defining </span><code>stages</code><span>, </span><code>default</code><span>, </span><code>image</code><span>, </span><code>tags</code><span>, </span><code>script</code><span>, </span><code>cache</code><span> (key, paths, policy), </span><code>needs</code><span>, </span><code>artifacts</code><span> (paths, expire_in).</span></p></li><li><p><strong><span>Pipelines:</span></strong><span> Viewing pipeline structure, stages, jobs, and logs.</span></p></li><li><p><strong><span>CI/CD Variables:</span></strong><span> (Mentioned as the solution for AWS Credentials in the next chapter).</span></p></li></ul></blockquote><h3 id='tools--concepts'><span>Tools &amp; Concepts:</span></h3><blockquote><ul><li><p><strong><span>Docker Executor:</span></strong><span> How it uses images for isolated job execution.</span></p></li><li><p><strong><span>Docker Engine:</span></strong><span> Installation on the runner host.</span></p></li><li><p><strong><span>Linting (ESLint):</span></strong><span> Purpose, adding dependencies (</span><code>eslint</code><span>, </span><code>@typescript-eslint/*</code><span>), configuration (</span><code>.eslintrc.js</code><span>), adding run script to </span><code>package.json</code><span>.</span></p></li><li><p><strong><span>npm ci:</span></strong><span> Purpose for clean installs in CI.</span></p></li></ul></blockquote></div></div>
+</body>
+</html>

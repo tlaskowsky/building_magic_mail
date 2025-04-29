@@ -1,0 +1,796 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --mermaid-theme: default; --mermaid-sequence-numbers: off; --mermaid-flowchart-curve: linear; --mermaid--gantt-left-padding: 75; --sequence-theme: simple; }
+.privacy { display: none; }
+
+
+:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; position: relative; }
+#write svg h1, #write svg h2, #write svg h3, #write svg h4, #write svg h5, #write svg h6, #write svg p { position: static; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: medium !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(https://fonts.googleapis.com/css?family=Lato:900,300&subset=latin-ext);
+
+:root {
+	--control-text-color: #777;
+}
+
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+h1,
+.h1,
+.f1 {
+	font-size: 2rem;
+	line-height: 2.5rem;
+}
+h2,
+.h2,
+.f2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+h3,
+.h3,
+.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+#write {
+	max-width: 914px;
+	color: #333;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media only screen and (min-width: 1700px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+}
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+table {
+	width: 100%;
+	font-size: 1.125rem;
+}
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
+	vertical-align: top;
+	border-top: 1px solid #333;
+}
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #333;
+}
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+table > tbody + tbody {
+	border-top: 2px solid #333;
+}
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+abbr {
+	border-bottom: 1px black dotted;
+	cursor: help;
+}
+pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+blockquote {
+	padding: 1.33em;
+	font-style: italic;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+}
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+#write {
+	padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+.md-image>.md-meta {
+	color: #463F5C
+}
+.footnotes {
+	font-size:1.1rem;
+}
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
+}
+
+.task-list{
+	padding-left: 0;
+}
+
+.md-task-list-item {
+	padding-left:34px;
+}
+
+.md-task-list-item > input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -0.2rem;
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 7px);
+	border: none;
+}
+
+.md-task-list-item > input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.md-task-list-item > input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
+}
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
+	opacity: 1;
+}
+
+.md-task-list-item > input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
+.md-tag {
+	color:inherit;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
+}
+
+.outline-expander:before {
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  font-size: 1.5rem;
+ 	top: -0.1rem;
+}
+
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.os-windows #typora-source {
+	font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -3.4em;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+li {
+	margin: 0.5rem 0;
+}
+
+li > *:last-child {
+	margin-bottom: 0;
+}
+
+p img + em {
+  display: block;
+  text-align: center;
+  font-size: 0.85em;
+  color: gray;
+  margin-top: 4px;
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>Chapter4</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='chapter-4'><span>Chapter 4</span></h1><h2 id='introduction-to-cicd-for-infrastructure'><span>Introduction to CI/CD for Infrastructure</span></h2><p><em><span>Ethan looked over the </span><code>magicmail-infra</code><span> project in GitLab. He felt much more organized now. Issues tracked the work, branches isolated changes, and Merge Requests provided a clear process for review and integration into the </span><code>main</code><span> branch. Pushing code to the GitLab server felt secure.</span></em></p><p><em><span>&quot;This GitLab workflow is really helpful, Maya,&quot; Ethan said during their next session. &quot;Creating issues, branching, making merge requests – it feels much safer and more organized than just editing files randomly. But,&quot; he paused, &quot;I&#39;m still running </span><code>cdk deploy</code><span> manually from my own terminal whenever we merge something into </span><code>main</code><span>. What if I forget a step, or use the wrong profile, or my local setup is slightly different? It still feels like a point where errors could creep in.&quot;</span></em></p><p><em><span>Maya nodded approvingly. &quot;You&#39;ve hit on the exact reason why the workflow isn&#39;t complete yet, Ethan. Managing the code collaboratively is crucial, but the deployment process itself should also be consistent, reliable, and automated. That&#39;s where </span><strong><span>CI/CD</span></strong><span> comes in.&quot;</span></em></p><p><em><span>&quot;CI/CD?&quot;</span></em><span> Ethan queried.</span></p><p><em><span>&quot;Exactly. It stands for </span><strong><span>Continuous Integration</span></strong><span> and </span><strong><span>Continuous Delivery</span></strong><span> or </span><strong><span>Continuous Deployment</span></strong><span>,&quot; Maya explained. &quot;It&#39;s a set of practices and tools designed to automate the process of building, testing, and deploying software – and in our case, infrastructure – frequently and reliably.&quot;</span></em></p><hr /><p><span>&quot;Think about the steps involved after you merge code into </span><code>main</code><span>,&quot; Maya continued. &quot;You manually pull the changes, maybe run some checks locally, and then execute </span><code>cdk deploy</code><span>. CI/CD aims to automate all of that.&quot;</span></p><h2 id='what-is-cicd'><span>What is CI/CD?</span></h2><p><span>Let&#39;s break down the terms:</span></p><h3 id='continuous-integration-ci'><span>Continuous Integration (CI):</span></h3><ul><li><p><strong><span>Concept:</span></strong><span> The practice of developers frequently merging their code changes (often daily or multiple times a day) into a central repository (like our </span><code>main</code><span> branch in GitLab).</span></p></li><li><p><strong><span>Automation:</span></strong><span> Each merge triggers an </span><em><span>automated</span></em><span> process that builds the code and runs automated tests (unit tests, integration tests, linting checks, etc.).</span></p></li><li><p><strong><span>Goal:</span></strong><span> To detect integration errors, bugs, and inconsistencies early and often, making them easier and faster to fix. It ensures the code in the main branch is always in a potentially shippable state.</span></p></li></ul><h3 id='continuous-delivery-cd'><span>Continuous Delivery (CD):</span></h3><ul><li><p><strong><span>Concept:</span></strong><span> Extends CI by automating the </span><em><span>release</span></em><span> process. After the CI phase (build and test) passes successfully, the code changes are automatically prepared for release to a production-like environment (e.g., staging).</span></p></li><li><p><strong><span>Automation:</span></strong><span> The process includes building release artifacts and potentially deploying them automatically to a staging environment.</span></p></li><li><p><strong><span>Goal:</span></strong><span> To ensure that any code passing the automated checks can be released to users quickly and reliably with minimal manual intervention. The actual deployment to </span><em><span>production</span></em><span> might still require a manual approval step.</span></p></li></ul><h3 id='continuous-deployment-cd'><span>Continuous Deployment (CD):</span></h3><ul><li><p><strong><span>Concept:</span></strong><span> Goes one step further than Continuous Delivery. Every change that passes all stages of the automated pipeline (build, test, staging deployment checks) is </span><em><span>automatically deployed to production</span></em><span>.</span></p></li><li><p><strong><span>Automation:</span></strong><span> Fully automates the entire release process, including production deployment.</span></p></li><li><p><strong><span>Goal:</span></strong><span> To release new features and fixes to users as quickly and frequently as possible, provided the automated checks are robust enough to ensure stability.</span></p></li></ul><h3 id='focus-for-magicmail-project'><span>Focus for MagicMail Project</span></h3><p><span>&quot;For our Infrastructure as Code project,&quot; Maya clarified, &quot;we&#39;ll primarily focus on CI (automating checks like linting, synthesis, and potentially diffs) and Continuous Delivery (automating deployment to a development or staging environment, possibly with manual approval for production).&quot;</span></p><div class="md-diagram-panel md-fences-adv-panel" lang="mermaid"><svg id="mermaidChart0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart mermaid-svg" style="max-width: 904px;" viewBox="-8 -8 904 908.71875" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mermaidChart0{font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart0 .error-icon{fill:#552222;}#mermaidChart0 .error-text{fill:#552222;stroke:#552222;}#mermaidChart0 .edge-thickness-normal{stroke-width:1px;}#mermaidChart0 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart0 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart0 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaidChart0 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart0 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart0 .marker{fill:#333333;stroke:#333333;}#mermaidChart0 .marker.cross{stroke:#333333;}#mermaidChart0 svg{font-family:sans-serif;font-size:16px;}#mermaidChart0 p{margin:0;}#mermaidChart0 .label{font-family:sans-serif;color:#333;}#mermaidChart0 .cluster-label text{fill:#333;}#mermaidChart0 .cluster-label span{color:#333;}#mermaidChart0 .cluster-label span p{background-color:transparent;}#mermaidChart0 .label text,#mermaidChart0 span{fill:#333;color:#333;}#mermaidChart0 .node rect,#mermaidChart0 .node circle,#mermaidChart0 .node ellipse,#mermaidChart0 .node polygon,#mermaidChart0 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart0 .rough-node .label text,#mermaidChart0 .node .label text,#mermaidChart0 .image-shape .label,#mermaidChart0 .icon-shape .label{text-anchor:middle;}#mermaidChart0 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaidChart0 .rough-node .label,#mermaidChart0 .node .label,#mermaidChart0 .image-shape .label,#mermaidChart0 .icon-shape .label{text-align:center;}#mermaidChart0 .node.clickable{cursor:pointer;}#mermaidChart0 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaidChart0 .arrowheadPath{fill:#333333;}#mermaidChart0 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaidChart0 .flowchart-link{stroke:#333333;fill:none;}#mermaidChart0 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart0 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaidChart0 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart0 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaidChart0 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaidChart0 .cluster text{fill:#333;}#mermaidChart0 .cluster span{color:#333;}#mermaidChart0 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart0 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaidChart0 rect.text{fill:none;stroke-width:0;}#mermaidChart0 .icon-shape,#mermaidChart0 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart0 .icon-shape p,#mermaidChart0 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaidChart0 .icon-shape rect,#mermaidChart0 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart0 :root{--mermaid-alt-font-family:sans-serif;}</style><g><marker id="mermaidChart0_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart0_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart0_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart0_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart0_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart0_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M322.688,60.935L291.906,66.446C261.125,71.957,199.563,82.978,168.781,91.989C138,101,138,108,138,111.5L138,115" id="L_A_B_0" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M138,211L138,215.167C138,219.333,138,227.667,138,235.333C138,243,138,250,138,253.5L138,257" id="L_B_C_1" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M448,69L448,73.167C448,77.333,448,85.667,448,93.333C448,101,448,108,448,111.5L448,115" id="L_A_D_2" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M448,211L448,215.167C448,219.333,448,227.667,448,237.917C448,248.167,448,260.333,448,266.417L448,272.5" id="L_D_E_3" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M448,337.5L448,344.25C448,351,448,364.5,448.07,374.833C448.141,385.167,448.281,392.334,448.351,395.917L448.422,399.501" id="L_E_F_4" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M448.5,640.219L448.417,644.302C448.333,648.385,448.167,656.552,448.083,664.135C448,671.719,448,678.719,448,682.219L448,685.719" id="L_F_G_5" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M573.313,60.935L604.094,66.446C634.875,71.957,696.438,82.978,727.219,100.322C758,117.667,758,141.333,758,165C758,188.667,758,212.333,758,236C758,259.667,758,283.333,758,307C758,330.667,758,354.333,758,381.727C758,409.12,758,440.24,758,455.799L758,471.359" id="L_A_H_6" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M758,567.359L758,583.586C758,599.813,758,632.266,758,651.992C758,671.719,758,678.719,758,682.219L758,685.719" id="L_H_I_7" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M448,781.719L448,785.885C448,790.052,448,798.385,459.009,806.494C470.018,814.603,492.036,822.486,503.045,826.428L514.054,830.37" id="L_G_P_8" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path><path d="M758,781.719L758,785.885C758,790.052,758,798.385,746.991,806.494C735.982,814.603,713.964,822.486,702.955,826.428L691.946,830.37" id="L_I_P_9" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart0_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default  " id="flowchart-A-0" transform="translate(448, 38.5)"><rect class="basic label-container" style="" x="-125.3125" y="-30.5" width="250.625" height="61"></rect><g class="label" style="" transform="translate(-95.3125, -15.5)"><rect></rect><foreignObject width="190.625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Developer Pushes Code</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-B-2" transform="translate(138, 165)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Run Build and Test Jobs - CI</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-C-4" transform="translate(138, 307)"><rect class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Build Artifacts - No Deployment</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-D-6" transform="translate(448, 165)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Run Build and Test Jobs - CI</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-E-8" transform="translate(448, 307)"><rect class="basic label-container" style="" x="-129.53125" y="-30.5" width="259.0625" height="61"></rect><g class="label" style="" transform="translate(-99.53125, -15.5)"><rect></rect><foreignObject width="199.0625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Prepare Release Artifacts</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-F-10" transform="translate(448, 521.359375)"><polygon points="118.359375,0 236.71875,-118.359375 118.359375,-236.71875 0,-118.359375" class="label-container" transform="translate(-118.359375,118.359375)" style="fill:#ffe066 !important;stroke:#333 !important"></polygon><g class="label" style="" transform="translate(-87.859375, -15.5)"><rect></rect><foreignObject width="175.71875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Manual Approval Gate</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-G-12" transform="translate(448, 735.71875)"><rect class="basic label-container" style="fill:#b2f2bb !important;stroke:#333 !important" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Deploy to Production Environment</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-H-14" transform="translate(758, 521.359375)"><rect class="basic label-container" style="" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Run Build and Test Jobs - CI</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-I-16" transform="translate(758, 735.71875)"><rect class="basic label-container" style="fill:#b2f2bb !important;stroke:#333 !important" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Auto Deploy to Production Environment</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-P-18" transform="translate(603, 862.21875)"><rect class="basic label-container" style="fill:#a9e34b !important;stroke:#333 !important;stroke-width:2px !important" x="-123.0546875" y="-30.5" width="246.109375" height="61"></rect><g class="label" style="" transform="translate(-93.0546875, -15.5)"><rect></rect><foreignObject width="186.109375" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Production Environment</p></span></div></foreignObject></g></g></g></g></g></svg></div><p><em><span>Diagram: Continuous Integration, Continuous Delivery, and Continuous Deployment Comparison</span></em></p><h2 id='relationship-between-devops-and-cicd'><span>Relationship Between DevOps and CI/CD</span></h2><p><span>As Maya finished sketching the basic idea of CI/CD, Ethan tilted his head slightly.</span></p><h3 id='what-is-devops'><span>What is DevOps?</span></h3><p><span>&quot;Wait, Maya... back in Book 1, you mentioned something about DevOps teams and professional workflows. But what exactly is DevOps? I feel like it’s related to CI/CD somehow, right?&quot;</span></p><p><span>Maya nodded. &quot;Great question, Ethan. Yes — they&#39;re definitely connected. </span><strong><span>DevOps</span></strong><span> is a cultural and technical movement. It&#39;s about bringing together development teams and operations teams — people who write code and people who run systems — so they work more closely, automate more processes, and deliver software faster and more reliably.&quot;</span></p><h3 id='how-cicd-fits-into-devops'><span>How CI/CD fits into DevOps</span></h3><p><span>&quot;And CI/CD is one of the things they use to do that?&quot; Ethan asked.</span></p><p><span>&quot;Exactly,&quot; Maya said. &quot;</span><strong><span>CI/CD is a key practice inside DevOps.</span></strong><span> DevOps is the big picture: collaboration, automation, continuous improvement. CI/CD is one of the engines that makes that vision real — it automates building, testing, and deploying changes so teams can move quickly without breaking things.&quot;</span></p><p><span>&quot;Got it,&quot; Ethan said, smiling. &quot;So if we&#39;re setting up pipelines and automating our infrastructure deployment, we&#39;re kind of practicing DevOps already?&quot;</span></p><p><span>Maya laughed. &quot;You absolutely are. And by the end of this book, you&#39;ll be even closer to how real-world DevOps teams operate every day.&quot;</span></p><div class="md-diagram-panel md-fences-adv-panel" lang="mermaid"><svg id="mermaidChart1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart mermaid-svg" style="max-width: 1137.546875px;" viewBox="-8 -8 1137.546875 400" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mermaidChart1{font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart1 .error-icon{fill:#552222;}#mermaidChart1 .error-text{fill:#552222;stroke:#552222;}#mermaidChart1 .edge-thickness-normal{stroke-width:1px;}#mermaidChart1 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart1 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaidChart1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart1 .marker{fill:#333333;stroke:#333333;}#mermaidChart1 .marker.cross{stroke:#333333;}#mermaidChart1 svg{font-family:sans-serif;font-size:16px;}#mermaidChart1 p{margin:0;}#mermaidChart1 .label{font-family:sans-serif;color:#333;}#mermaidChart1 .cluster-label text{fill:#333;}#mermaidChart1 .cluster-label span{color:#333;}#mermaidChart1 .cluster-label span p{background-color:transparent;}#mermaidChart1 .label text,#mermaidChart1 span{fill:#333;color:#333;}#mermaidChart1 .node rect,#mermaidChart1 .node circle,#mermaidChart1 .node ellipse,#mermaidChart1 .node polygon,#mermaidChart1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart1 .rough-node .label text,#mermaidChart1 .node .label text,#mermaidChart1 .image-shape .label,#mermaidChart1 .icon-shape .label{text-anchor:middle;}#mermaidChart1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaidChart1 .rough-node .label,#mermaidChart1 .node .label,#mermaidChart1 .image-shape .label,#mermaidChart1 .icon-shape .label{text-align:center;}#mermaidChart1 .node.clickable{cursor:pointer;}#mermaidChart1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaidChart1 .arrowheadPath{fill:#333333;}#mermaidChart1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaidChart1 .flowchart-link{stroke:#333333;fill:none;}#mermaidChart1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaidChart1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaidChart1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaidChart1 .cluster text{fill:#333;}#mermaidChart1 .cluster span{color:#333;}#mermaidChart1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaidChart1 rect.text{fill:none;stroke-width:0;}#mermaidChart1 .icon-shape,#mermaidChart1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart1 .icon-shape p,#mermaidChart1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaidChart1 .icon-shape rect,#mermaidChart1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart1 :root{--mermaid-alt-font-family:sans-serif;}</style><g><marker id="mermaidChart1_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart1_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart1_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart1_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart1_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart1_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M464.453,46.575L403.673,54.479C342.893,62.383,221.333,78.192,160.553,92.179C99.773,106.167,99.773,118.333,99.773,124.417L99.773,130.5" id="L_A_B_0" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M464.453,60.734L448.969,66.278C433.484,71.822,402.516,82.911,387.031,91.956C371.547,101,371.547,108,371.547,111.5L371.547,115" id="L_A_C_1" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M588.641,60.734L604.125,66.278C619.609,71.822,650.578,82.911,666.063,91.956C681.547,101,681.547,108,681.547,111.5L681.547,115" id="L_A_D_2" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M588.641,45.911L655.792,53.926C722.943,61.941,857.245,77.97,924.396,89.485C991.547,101,991.547,108,991.547,111.5L991.547,115" id="L_A_E_3" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M99.773,226.5L99.773,233.25C99.773,240,99.773,253.5,112.101,266.691C124.429,279.883,149.085,292.765,161.413,299.206L173.741,305.648" id="L_B_F_4" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M371.547,242L371.547,246.167C371.547,250.333,371.547,258.667,359.219,269.275C346.891,279.883,322.235,292.765,309.907,299.206L297.579,305.648" id="L_C_F_5" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M681.547,242L681.547,246.167C681.547,250.333,681.547,258.667,690.037,266.722C698.527,274.778,715.507,282.556,723.998,286.445L732.488,290.334" id="L_D_G_6" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path><path d="M991.547,242L991.547,246.167C991.547,250.333,991.547,258.667,983.057,266.722C974.567,274.778,957.586,282.556,949.096,286.445L940.606,290.334" id="L_E_G_7" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart1_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default  " id="flowchart-A-26" transform="translate(526.546875, 38.5)"><rect class="basic label-container" style="fill:#ffd6a5 !important;stroke:#333 !important;stroke-width:2px !important" x="-62.09375" y="-30.5" width="124.1875" height="61"></rect><g class="label" style="" transform="translate(-32.09375, -15.5)"><rect></rect><foreignObject width="64.1875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>DevOps</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-B-28" transform="translate(99.7734375, 180.5)"><rect class="basic label-container" style="fill:#b2f2bb !important;stroke:#333 !important" x="-91.7734375" y="-46" width="183.546875" height="92"></rect><g class="label" style="" transform="translate(-61.7734375, -31)"><rect></rect><foreignObject width="123.546875" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Communication<br/>Between Teams</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-C-30" transform="translate(371.546875, 180.5)"><rect class="basic label-container" style="fill:#b2f2bb !important;stroke:#333 !important" x="-130" y="-61.5" width="260" height="123"></rect><g class="label" style="" transform="translate(-100, -46.5)"><rect></rect><foreignObject width="200" height="93"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Collaboration<br/>Across Development &amp; Operations</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-D-32" transform="translate(681.546875, 180.5)"><rect class="basic label-container" style="fill:#b2f2bb !important;stroke:#333 !important" x="-130" y="-61.5" width="260" height="123"></rect><g class="label" style="" transform="translate(-100, -46.5)"><rect></rect><foreignObject width="200" height="93"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Integration<br/>Shared Tools and Processes</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-E-34" transform="translate(991.546875, 180.5)"><rect class="basic label-container" style="fill:#fff3bf !important;stroke:#333 !important" x="-130" y="-61.5" width="260" height="123"></rect><g class="label" style="" transform="translate(-100, -46.5)"><rect></rect><foreignObject width="200" height="93"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Automation<br/>CI/CD Pipelines, IaC, Testing</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-F-36" transform="translate(235.66015625, 338)"><rect class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important" x="-91.7734375" y="-30.5" width="183.546875" height="61"></rect><g class="label" style="" transform="translate(-61.7734375, -15.5)"><rect></rect><foreignObject width="123.546875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Reduce Friction</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-G-40" transform="translate(836.546875, 338)"><rect class="basic label-container" style="fill:#d0ebff !important;stroke:#333 !important" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Increase Deployment Velocity</p></span></div></foreignObject></g></g></g></g></g></svg></div><p><em><span>Diagram: Relationship Between DevOps and CI/CD</span></em></p><h2 id='why-cicd-for-infrastructure-as-code-iac'><span>Why CI/CD for Infrastructure as Code (IaC)?</span></h2><p><span>&quot;Applying CI/CD principles to infrastructure defined with tools like CDK offers massive benefits,&quot; Maya emphasized.</span></p><ul><li><p><strong><span>Consistency:</span></strong><span> Automated pipelines execute the same steps every time, eliminating variations caused by different developer environments or manual errors during deployment (</span><code>cdk deploy</code><span>).</span></p></li><li><p><strong><span>Speed &amp; Frequency:</span></strong><span> </span>
+<span>Automating the testing and deployment process allows for faster feedback cycles and more frequent, smaller infrastructure updates, reducing the risk associated with large, infrequent changes.</span></p></li><li><p><strong><span>Safety &amp; Risk Reduction:</span></strong><span> </span>
+<span>Automated checks (linting, </span><code>cdk diff</code><span>, policy checks, security scans) can be built into the pipeline to catch potential issues </span><em><span>before</span></em><span> infrastructure is modified. Merge Request pipelines provide a crucial validation gate.</span></p></li><li><p><strong><span>Reduced Manual Toil:</span></strong><span> Automates repetitive tasks like installing dependencies, compiling code, synthesizing templates, and running deployment commands, freeing up engineers for more valuable work.</span></p></li><li><p><strong><span>Audit Trail &amp; Visibility:</span></strong><span> CI/CD platforms like GitLab provide a clear history of what changes were deployed, when, by whom (or what process), and whether the associated checks passed or failed.</span></p></li><li><p><strong><span>Collaboration:</span></strong><span> Provides a shared, automated process for the entire team, ensuring everyone follows the same deployment standards.</span></p></li></ul><p><span>&quot;Essentially, CI/CD brings the same rigor and automation benefits enjoyed in application development to the world of infrastructure management.&quot;</span></p><h2 id='gitlab-cicd-overview'><span>GitLab CI/CD Overview</span></h2><p><span>&quot;GitLab has a powerful and tightly integrated CI/CD system built right in,&quot; Maya said, bringing up a conceptual diagram. &quot;The core components work together like this:&quot;</span></p><div class="md-diagram-panel md-fences-adv-panel" lang="mermaid"><svg id="mermaidChart2" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart mermaid-svg" style="max-width: 747.59375px;" viewBox="-8 -8 747.59375 1229.984375" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mermaidChart2{font-family:sans-serif;font-size:16px;fill:#333;}#mermaidChart2 .error-icon{fill:#552222;}#mermaidChart2 .error-text{fill:#552222;stroke:#552222;}#mermaidChart2 .edge-thickness-normal{stroke-width:1px;}#mermaidChart2 .edge-thickness-thick{stroke-width:3.5px;}#mermaidChart2 .edge-pattern-solid{stroke-dasharray:0;}#mermaidChart2 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaidChart2 .edge-pattern-dashed{stroke-dasharray:3;}#mermaidChart2 .edge-pattern-dotted{stroke-dasharray:2;}#mermaidChart2 .marker{fill:#333333;stroke:#333333;}#mermaidChart2 .marker.cross{stroke:#333333;}#mermaidChart2 svg{font-family:sans-serif;font-size:16px;}#mermaidChart2 p{margin:0;}#mermaidChart2 .label{font-family:sans-serif;color:#333;}#mermaidChart2 .cluster-label text{fill:#333;}#mermaidChart2 .cluster-label span{color:#333;}#mermaidChart2 .cluster-label span p{background-color:transparent;}#mermaidChart2 .label text,#mermaidChart2 span{fill:#333;color:#333;}#mermaidChart2 .node rect,#mermaidChart2 .node circle,#mermaidChart2 .node ellipse,#mermaidChart2 .node polygon,#mermaidChart2 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaidChart2 .rough-node .label text,#mermaidChart2 .node .label text,#mermaidChart2 .image-shape .label,#mermaidChart2 .icon-shape .label{text-anchor:middle;}#mermaidChart2 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaidChart2 .rough-node .label,#mermaidChart2 .node .label,#mermaidChart2 .image-shape .label,#mermaidChart2 .icon-shape .label{text-align:center;}#mermaidChart2 .node.clickable{cursor:pointer;}#mermaidChart2 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaidChart2 .arrowheadPath{fill:#333333;}#mermaidChart2 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaidChart2 .flowchart-link{stroke:#333333;fill:none;}#mermaidChart2 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart2 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaidChart2 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart2 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaidChart2 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaidChart2 .cluster text{fill:#333;}#mermaidChart2 .cluster span{color:#333;}#mermaidChart2 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaidChart2 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaidChart2 rect.text{fill:none;stroke-width:0;}#mermaidChart2 .icon-shape,#mermaidChart2 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaidChart2 .icon-shape p,#mermaidChart2 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaidChart2 .icon-shape rect,#mermaidChart2 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaidChart2 :root{--mermaid-alt-font-family:sans-serif;}</style><g><marker id="mermaidChart2_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart2_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart2_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart2_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaidChart2_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaidChart2_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"><g class="cluster " id="subGraph3" data-look="classic"><rect style="" x="8" y="655.984375" width="723.59375" height="558"></rect><g class="cluster-label " transform="translate(269.796875, 655.984375)"><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Pipeline defined in .gitlab-ci.yml</p></span></div></foreignObject></g></g></g><g class="edgePaths"><path d="M369.797,100L369.797,104.167C369.797,108.333,369.797,116.667,369.797,124.333C369.797,132,369.797,139,369.797,142.5L369.797,146" id="L_A_B_0" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart2_flowchart-v2-pointEnd)"></path><path d="M369.797,211L369.797,215.167C369.797,219.333,369.797,227.667,369.867,235.417C369.937,243.167,370.078,250.334,370.148,253.917L370.218,257.501" id="L_B_C_1" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart2_flowchart-v2-pointEnd)"></path><path d="M370.297,464.484L370.214,468.568C370.13,472.651,369.964,480.818,369.88,488.401C369.797,495.984,369.797,502.984,369.797,506.484L369.797,509.984" id="L_C_D_2" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart2_flowchart-v2-pointEnd)"></path><path d="M369.797,816.984L369.797,821.151C369.797,825.318,369.797,833.651,369.797,841.318C369.797,848.984,369.797,855.984,369.797,859.484L369.797,862.984" id="L_E_F_3" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart2_flowchart-v2-pointEnd)"></path><path d="M369.797,1002.984L369.797,1007.151C369.797,1011.318,369.797,1019.651,369.797,1027.318C369.797,1034.984,369.797,1041.984,369.797,1045.484L369.797,1048.984" id="L_F_G_4" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart2_flowchart-v2-pointEnd)"></path><path d="M369.797,605.984L369.797,610.151C369.797,614.318,369.797,622.651,369.797,630.984C369.797,639.318,369.797,647.651,369.797,655.318C369.797,662.984,369.797,669.984,369.797,673.484L369.797,676.984" id="L_D_E_5" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="" marker-end="url(#mermaidChart2_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel "></span></div></foreignObject></g></g></g><g class="nodes"><g class="root" transform="translate(233.828125, 1044.984375)"><g class="clusters"><g class="cluster " id="G" data-look="classic"><rect style="" x="8" y="8" width="255.9375" height="136"></rect><g class="cluster-label " transform="translate(80.53125, 8)"><foreignObject width="110.875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Stage: Deploy</p></span></div></foreignObject></g></g></g><g class="edgePaths"></g><g class="edgeLabels"></g><g class="nodes"><g class="node default  " id="flowchart-J6-64" transform="translate(135.96875, 76)"><rect class="basic label-container" style="" rx="5" ry="5" x="-92.96875" y="-30.5" width="185.9375" height="61"></rect><g class="label" style="" transform="translate(-77.96875, -15.5)"><rect></rect><foreignObject width="155.9375" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Job: Deploy to AWS</p></span></div></foreignObject></g></g></g></g><g class="root" transform="translate(35, 858.984375)"><g class="clusters"><g class="cluster " id="F" data-look="classic"><rect style="" x="8" y="8" width="653.59375" height="136"></rect><g class="cluster-label " transform="translate(291.5078125, 8)"><foreignObject width="86.578125" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Stage: Test</p></span></div></foreignObject></g></g></g><g class="edgePaths"></g><g class="edgeLabels"></g><g class="nodes"><g class="node default  " id="flowchart-J3-61" transform="translate(115.3828125, 76)"><rect class="basic label-container" style="" rx="5" ry="5" x="-72.3828125" y="-30.5" width="144.765625" height="61"></rect><g class="label" style="" transform="translate(-57.3828125, -15.5)"><rect></rect><foreignObject width="114.765625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Job: Lint Code</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-J4-62" transform="translate(332.0390625, 76)"><rect class="basic label-container" style="" rx="5" ry="5" x="-94.2734375" y="-30.5" width="188.546875" height="61"></rect><g class="label" style="" transform="translate(-79.2734375, -15.5)"><rect></rect><foreignObject width="158.546875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Job: Synth Template</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-J5-63" transform="translate(551.453125, 76)"><rect class="basic label-container" style="" rx="5" ry="5" x="-75.140625" y="-30.5" width="150.28125" height="61"></rect><g class="label" style="" transform="translate(-60.140625, -15.5)"><rect></rect><foreignObject width="120.28125" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Job: Check Diff</p></span></div></foreignObject></g></g></g></g><g class="root" transform="translate(141.484375, 672.984375)"><g class="clusters"><g class="cluster " id="E" data-look="classic"><rect style="" x="8" y="8" width="440.625" height="136"></rect><g class="cluster-label " transform="translate(180.65625, 8)"><foreignObject width="95.3125" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Stage: Build</p></span></div></foreignObject></g></g></g><g class="edgePaths"></g><g class="edgeLabels"></g><g class="nodes"><g class="node default  " id="flowchart-J1-59" transform="translate(123.6484375, 76)"><rect class="basic label-container" style="" rx="5" ry="5" x="-80.6484375" y="-30.5" width="161.296875" height="61"></rect><g class="label" style="" transform="translate(-65.6484375, -15.5)"><rect></rect><foreignObject width="131.296875" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Job: Install Deps</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-J2-60" transform="translate(333.9609375, 76)"><rect class="basic label-container" style="" rx="5" ry="5" x="-79.6640625" y="-30.5" width="159.328125" height="61"></rect><g class="label" style="" transform="translate(-64.6640625, -15.5)"><rect></rect><foreignObject width="129.328125" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Job: Compile TS</p></span></div></foreignObject></g></g></g></g><g class="node default  " id="flowchart-A-50" transform="translate(369.796875, 54)"><rect class="basic label-container" style="fill:#ddd !important;stroke:#333 !important" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>Developer commits &amp; pushes code to GitLab</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-B-51" transform="translate(369.796875, 180.5)"><rect class="basic label-container" style="fill:#lightblue !important;stroke:#333 !important" rx="5" ry="5" x="-94.7578125" y="-30.5" width="189.515625" height="61"></rect><g class="label" style="" transform="translate(-79.7578125, -15.5)"><rect></rect><foreignObject width="159.515625" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>GitLab detects push</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-C-53" transform="translate(369.796875, 362.4921875)"><polygon points="101.4921875,0 202.984375,-101.4921875 101.4921875,-202.984375 0,-101.4921875" class="label-container" transform="translate(-101.4921875,101.4921875)" style="fill:#lightgreen !important;stroke:#333 !important"></polygon><g class="label" style="" transform="translate(-70.9921875, -15.5)"><rect></rect><foreignObject width="141.984375" height="31"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="nodeLabel "><p>Pipeline Triggered</p></span></div></foreignObject></g></g><g class="node default  " id="flowchart-D-55" transform="translate(369.796875, 559.984375)"><rect class="basic label-container" style="fill:#orange !important;stroke:#333 !important" x="-130" y="-46" width="260" height="92"></rect><g class="label" style="" transform="translate(-100, -31)"><rect></rect><foreignObject width="200" height="62"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel "><p>GitLab Runner picks up Job</p></span></div></foreignObject></g></g></g></g></g></svg></div><p><em><span>Diagram: Conceptual flow of GitLab CI/CD.</span></em></p><p><span>&quot;Let&#39;s define these terms:</span></p><ol start='' ><li><p><strong><code>.gitlab-ci.yml</code><span> file:</span></strong><span> This is a YAML file you add to the root directory of your repository. It defines the structure and order of your CI/CD pipeline: the stages, the jobs within those stages, and the scripts each job should run. This file is version-controlled along with your code.</span></p></li><li><p><strong><span>Pipeline:</span></strong><span> Represents one run of your CI/CD process, typically triggered by an event like a push to a branch or a merge request creation. A pipeline contains one or more stages.</span></p></li><li><p><strong><span>Stage:</span></strong><span> A logical grouping of jobs. Stages run sequentially (e.g., the </span><code>test</code><span> stage only runs after all jobs in the </span><code>build</code><span> stage succeed).</span></p></li><li><p><strong><span>Job:</span></strong><span> Defines a specific task to be executed, containing the actual shell scripts to run (e.g., </span><code>npm install</code><span>, </span><code>npx cdk synth</code><span>, </span><code>npx cdk deploy</code><span>). Jobs within the same stage typically run in parallel if enough Runners are available.</span></p></li><li><p><strong><span>GitLab Runner:</span></strong><span> An agent (a separate process or machine) that executes the jobs defined in your </span><code>.gitlab-ci.yml</code><span> file. You can use shared Runners provided by GitLab.com, or you can install and register your own self-hosted Runners (e.g., on EC2 or in Docker) which connect to your GitLab instance (either GitLab.com or your self-hosted server).&quot;</span></p></li></ol><p><span>&quot;In the next chapter,&quot; Maya concluded, &quot;we&#39;ll get hands-on by setting up a GitLab Runner and creating our first </span><code>.gitlab-ci.</code></p><h2 id='tagging-the-end-of-chapter-4'><span>Tagging the End of Chapter 4</span></h2><p><span>&quot;Finally, let&#39;s tag the current state of our </span><code>main</code><span> branch to mark the completion of Chapter 4,&quot; said Maya. &quot;This provides a clear reference point for the code before we start adding the CI pipeline.&quot;</span></p><ol start='' ><li><p><strong><span>Ensure </span><code>main</code><span> is Up-to-Date:</span></strong><span> Make sure you are on the </span><code>main</code><span> branch locally and have pulled the latest changes:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> switch main</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> pull origin main</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 42px;"></div><div class="CodeMirror-gutters" style="display: none; height: 42px;"></div></div></div></pre></li><li><p><strong><span>Create Local Tag:</span></strong><span> Create the tag pointing to the latest commit on main:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> tag chapter-4-end</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre></li><li><p><strong><span>Push Tag:</span></strong><span> Push this new tag to the remote GitLab server</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 8.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> push origin chapter-4-end</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 21px;"></div><div class="CodeMirror-gutters" style="display: none; height: 21px;"></div></div></div></pre></li></ol><h2 id='wrapping-up-chapter-4'><span>Wrapping Up Chapter 4</span></h2><p><span>&quot;Excellent progress today, Ethan,&quot; Maya said. &quot;You now understand the key ideas behind CI/CD — and why automation isn&#39;t just a luxury, but a necessity when managing cloud infrastructure.&quot;</span></p><p><span>&quot;By connecting GitLab pipelines to your workflow, you&#39;re setting the stage for safer, faster, and more reliable deployments.&quot;</span></p><p><span>Maya leaned forward. &quot;In the next chapter, we&#39;ll move from concept to practice. We&#39;ll install a GitLab Runner and create your first working .gitlab-ci.yml pipeline file — and start making GitLab work for you.&quot;</span></p><hr /><h2 id='ethans-homework'><span>Ethan&#39;s Homework</span></h2><p><span>&quot;Before we start building our pipeline next time, it would be helpful to get familiar with some of these concepts:&quot; Maya suggested.</span></p><blockquote><ol start='' ><li><p><strong><span>Explore GitLab CI/CD Docs:</span></strong><span> Spend 15-20 minutes browsing the official GitLab CI/CD documentation. Focus on the basic structure of the </span><code>.gitlab-ci.yml</code><span> file (keywords like </span><code>stages</code><span>, </span><code>image</code><span>, </span><code>script</code><span>). Don&#39;t worry about understanding everything, just get a feel for the syntax.</span></p></li><li><p><strong><span>Sketch a Pipeline:</span></strong><span> On paper or in a simple text file, sketch out the stages and jobs you think might be needed for our </span><code>magicmail-infra</code><span> project. Think about the steps you currently perform manually (install, compile, synth, deploy) and how they might translate to pipeline stages and jobs.</span></p></li><li><p><strong><span>Runner Research:</span></strong><span> Read briefly about the difference between Shared Runners (on GitLab.com) and self-hosted GitLab Runners. What are the pros and cons of each?</span></p></li></ol></blockquote><h2 id='key-takeaways'><span>Key Takeaways</span></h2><blockquote><ul><li><p><span>Continuous Integration (CI) focuses on frequent code integration, automated builds, and testing to catch issues early.</span></p></li><li><p><span>Continuous Delivery/Deployment (CD) extends CI to automate the release and deployment process, improving speed and reliability.</span></p></li><li><p><span>CI/CD is crucial for IaC to ensure consistent, safe, and efficient infrastructure updates, reducing manual errors and toil.</span></p></li><li><p><span>GitLab CI/CD relies on a </span><code>.gitlab-ci.yml</code><span> file to define pipelines.</span></p></li><li><p><span>Pipelines consist of sequential Stages.</span></p></li><li><p><span>Stages contain parallel Jobs that execute specific scripts.</span></p></li><li><p><span>GitLab Runners are agents that execute the jobs.</span></p></li></ul></blockquote><h2 id='looking-ahead'><span>Looking Ahead</span></h2><p><span>With a conceptual understanding of CI/CD and the core GitLab components, Chapter 5 will be hands-on. We&#39;ll set up a GitLab Runner capable of executing our pipeline jobs and then create our first </span><code>.gitlab-ci.yml</code><span> file. We&#39;ll define basic stages like </span><code>build</code><span>, </span><code>test</code><span>, and </span><code>synth</code><span> and write the corresponding job scripts to automate the initial validation steps for our MagicMail CDK project, laying the groundwork for automated deployments.</span></p><h2 id='key-services--concepts-introduced'><span>Key Services &amp; Concepts Introduced</span></h2><h3 id='gitlab-features'><span>GitLab Features:</span></h3><blockquote><ul><li><p><strong><span>CI/CD Concepts:</span></strong><span> Pipelines, Stages, Jobs, Runners.</span></p></li><li><p><strong><code>.gitlab-ci.yml</code><span>:</span></strong><span> Introduced as the configuration file for pipelines.</span></p></li></ul></blockquote><h3 id='other-concepts'><span>Other Concepts:</span></h3><blockquote><ul><li><p><strong><span>Continuous Integration (CI):</span></strong><span> Definition, purpose, benefits.</span></p></li><li><p><strong><span>Continuous Delivery (CD):</span></strong><span> Definition, purpose, benefits.</span></p></li><li><p><strong><span>Continuous Deployment (CD):</span></strong><span> Definition</span></p></li></ul></blockquote></div></div>
+</body>
+</html>
